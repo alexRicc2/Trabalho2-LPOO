@@ -1,4 +1,3 @@
-
 public interface actions {
 	public void exclui();
 	public void cadastro();
