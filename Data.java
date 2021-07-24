@@ -4,6 +4,10 @@ public class Data {
   private int dia;
   private int mes;
   private int ano;
+  
+  public Data(){
+    this(1,1,1950);
+  }
 
   public Data(int dia, int mes, int ano) {
     Scanner scan = new Scanner(System.in);

@@ -2,9 +2,9 @@ public class Vendedor extends Funcionarios {
   private int treinamentoRestante;
   private Gerente responsavel;
 
-  public Vendedor(int treinamentoRestante, Gerente responsavel, String rg, String nome, Data dataNasc,
+  public Vendedor(int treinamentoRestante, Gerente responsavel,String login,String senha, String rg, String nome, Data dataNasc,
       Data dataAdmissao, double salario) {
-    super(rg, nome, dataNasc, dataAdmissao, salario);
+    super(login, senha, rg, nome, dataNasc, dataAdmissao, salario);
     this.treinamentoRestante = treinamentoRestante;
     this.responsavel = responsavel;
   }
