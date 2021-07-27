@@ -170,7 +170,7 @@ public class Arquivo{
     if(aVistaArq[0]!=""){
       Funcionarios vendedor=new Vendedor();
       Cliente cliente=new Cliente();
-      Veiculo veiculo=new Veiculo();
+      Veiculo veiculo=new Carro();
       
       for(int i=0;i<aVistaArq.length;i+=10){
         //encontrando vendedor
@@ -221,7 +221,7 @@ public class Arquivo{
     if(aPrazoArq[0]!=""){
       Funcionarios vendedor=new Vendedor();
       Cliente cliente=new Cliente();
-      Veiculo veiculo=new Veiculo();
+      Veiculo veiculo=new Carro();
       
       for(int i=0;i<aPrazoArq.length;i+=11){
         //encontrando vendedor
@@ -240,14 +240,16 @@ public class Arquivo{
         }
         //encontrando veiculo
         for(int j=0;j<carros.size();j++){
-          if(carros.get(j).getNumeroChassi()==Integer.parseInt(aPrazoArq[i+3]))
+          if(carros.get(j).getNumeroChassi()==Integer.parseInt(aPrazoArq[i+3])){
             veiculo=carros.get(j);
             break;
+          }
         }
         for(int j=0;j<motocicletas.size();j++){
-          if(motocicletas.get(j).getNumeroChassi()==Integer.parseInt(aPrazoArq[i+3]))
+          if(motocicletas.get(j).getNumeroChassi()==Integer.parseInt(aPrazoArq[i+3])){
             veiculo=motocicletas.get(j);
             break;
+          }
         }
         //adicionando ao arraylist
         vendas.add(new APrazo(

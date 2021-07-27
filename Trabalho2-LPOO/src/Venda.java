@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Venda {
+public abstract class Venda {
   private int id;
   private Funcionarios vendedor;
   private Cliente cliente;
@@ -10,7 +10,7 @@ public class Venda {
   private Hora hora;
   
   public Venda() {
-    this(0, new Funcionarios(), new Cliente(), new Veiculo(), 0, new Data(), new Hora());
+    this(0, new Vendedor(), new Cliente(), new Carro(), 0, new Data(), new Hora());
   }
   
   public Venda(int id, Funcionarios vendedor, Cliente cliente, Veiculo veiculo, double valor, Data data, Hora hora) {

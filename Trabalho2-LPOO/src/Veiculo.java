@@ -1,7 +1,7 @@
 // Número do chassi, marca, modelo, ano, quilometragem, tipo de
 // combustível, peso, status (vendido, a venda).
 import java.util.*;
-public class Veiculo {
+public abstract class Veiculo {
   private int numeroChassi;
   private String marca;
   private String modelo;

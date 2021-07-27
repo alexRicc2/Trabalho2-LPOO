@@ -5,7 +5,7 @@ public class Vendedor extends Funcionarios {
   private int tipo = 2;
   
   public Vendedor() {
-    this(0, new Funcionarios(),"","","","",new Data(),new Data(),0);
+    this(0, new Gerente(),"","","","",new Data(),new Data(),0);
   }
 
   public Vendedor(int treinamentoRestante, Funcionarios responsavel,String login,String senha, String rg, String nome, Data dataNasc,

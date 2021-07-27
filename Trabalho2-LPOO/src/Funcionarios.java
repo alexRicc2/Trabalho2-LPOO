@@ -1,5 +1,5 @@
 import java.util.*;
-public class Funcionarios {
+public abstract class Funcionarios {
   private int tipo;
   private String rg;
   private String nome;
@@ -93,7 +93,7 @@ public class Funcionarios {
     return 0;
   }
   public Funcionarios getResponsavel(){
-    return new Funcionarios();
+    return new Gerente();
   }
   public void cadastra( List<Funcionarios> funcionarios) {
     Scanner scan=new Scanner(System.in);
