@@ -68,11 +68,11 @@ public class Data implements generalActions{
     System.out.println("Data: " + this.getDia() + "/" + this.getMes() + "/" + this.getAno());
   }
   public void cadastra() {
-	  Scanner scan = new Scanner(System.in);
-	  System.out.println("Digite o dia, mes e ano separado por espaços: ");
-	  this.setDia(scan.nextInt()); this.setMes(scan.nextInt()); this.setAno(scan.nextInt());
+    Scanner scan = new Scanner(System.in);
+    System.out.println("Digite o dia, mes e ano separado por espaços: ");
+    this.setDia(scan.nextInt()); this.setMes(scan.nextInt()); this.setAno(scan.nextInt());
   }
   public void altera() {
-	  
+    
   }
 }

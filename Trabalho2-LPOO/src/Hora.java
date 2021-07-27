@@ -5,7 +5,7 @@ public class Hora implements generalActions{
   private int minuto;
   
   public Hora() {
-	  this(0,0);
+    this(0,0);
   }
 
   public Hora(int hora, int minuto) {
@@ -53,11 +53,11 @@ public class Hora implements generalActions{
   }
   
   public void cadastra() {
-	Scanner scan = new Scanner(System.in);
-	System.out.println("Digite a hora e minutos separado por espaços: ");
-	this.setHora(scan.nextInt()); this.setMinuto(scan.nextInt());
+  Scanner scan = new Scanner(System.in);
+  System.out.println("Digite a hora e minutos separado por espaços: ");
+  this.setHora(scan.nextInt()); this.setMinuto(scan.nextInt());
   }
   public void altera() {
-	  
+    
   }
 }

@@ -84,194 +84,194 @@ public class Principal{
       //se quem logou foi gerente
       if(opLogin==1){
         // opções gerente
-    	  int opcao,op;
-    	  do {
-    		  
-    		  System.out.println("---Menu Gerente---");
-    		  System.out.println("1- Opções Clientes");
-    		  System.out.println("2- Opções Veiculos");
-    		  System.out.println("3- Opções Funcionarios");
-    		  System.out.println("0- Deslogar como gerente");
-    		  System.out.println("Sua escolha: ");
-    		  opcao = scan.nextInt();
-    		  
-    		  if(opcao == 1) { //opcoes do gerente sobre clientes
-    			  System.out.println("---Aba Clientes---");
-    			  System.out.println("1- Cadastrar novo cliente");
-    			  System.out.println("2- Alterar informações de um cliente");
-    			  System.out.println("3- excluir um cliente");
-    			  System.out.println("Sua escolha: ");
-    			  op = scan.nextInt();
-    			  
-    			  if(op == 1) { //cadastrar cliente
-    				  Cliente novo = new Cliente();
-    				  novo.cadastra();
-    				  clientes.add(novo);
-    			  }
-    			  else if(op == 2) { //alterar cliente
-    				  for(int i=0;i<clientes.size();i++) {
-    					  System.out.println("Cliente["+i+"]: "+ clientes.get(i).getNome());
-    				  }
-    				  System.out.println("Digite o indice do cliente que deseja alterar: ");
-    				  clientes.get(scan.nextInt()).altera();
-    			  }else if(op == 3) { //excluir cliente
-    				  for(int i=0;i<clientes.size();i++) {
-    					  System.out.println("Cliente["+i+"]: "+ clientes.get(i).getNome());
-    				  }
-    				  System.out.println("Digite o indice do cliente que deseja deletar: ");
-    				  clientes.remove(scan.nextInt());
-    			  }
-    		  }
-    		  else if(opcao == 2) {//opcoes do gerente sobre veiculos
-    			  
-    			  System.out.println("---Aba Veiculos---");
-    			  System.out.println("1- Cadastrar um carro");
-    			  System.out.println("2- Cadastrar uma moto");
-    			  System.out.println("3- Alterar um carro");
-    			  System.out.println("4- Alterar uma moto");
-    			  System.out.println("5- Excluir um carro");
-    			  System.out.println("6- Excluir uma moto");
-    			  System.out.println("sua escolha: ");
-    			  op = scan.nextInt();
-    			  if(op == 1) {
-        			Carro novo = new Carro();
-        			novo.cadastra();
-        			carros.add(novo);
-    			  }
-    			  else if(op == 2) {
-        			  Motocicleta novo = new Motocicleta();
-        			  novo.cadastra();
-        			  motocicletas.add(novo);
-        		  }
-    			  else if(op == 3) {
-    				  for(int i=0;i<carros.size();i++) {    					  
-    					  System.out.println("Carro["+i+"]: " +carros.get(i).getMarca() + " " + carros.get(i).getModelo());
-    				  }
-    				  System.out.println("Digite o indice do carro que deseja alterar: ");
-    				  carros.get(scan.nextInt()).altera();
-    			  }
-    			  else if(op == 4) {
-    				  for(int i=0;i<motocicletas.size();i++) {    					  
-    					  System.out.println("Moto["+i+"]: " +motocicletas.get(i).getMarca() + " " + motocicletas.get(i).getModelo());
-    				  }
-    				  System.out.println("Digite o indice da moto que deseja alterar: ");
-    				  motocicletas.get(scan.nextInt()).altera();
-    			  }
-    			  else if(op == 5) {
-    				  for(int i=0;i<carros.size();i++) {    					  
-    					  System.out.println("Carro["+i+"]: " +carros.get(i).getMarca() + " " + carros.get(i).getModelo());
-    				  }
-    				  System.out.println("Digite o indice do carro que deseja excluir: ");
-    				  carros.remove(scan.nextInt());
-    			  }
-    			  else if(op == 6) {
-    				  for(int i=0;i<motocicletas.size();i++) {    					  
-    					  System.out.println("Moto["+i+"]: " +motocicletas.get(i).getMarca() + " " + motocicletas.get(i).getModelo());
-    				  }
-    				  System.out.println("Digite o indice da moto que deseja excluir: ");
-    				  motocicletas.remove(scan.nextInt());
-    			  }
-    		  }
-    		  else if(opcao == 3) { //opcoes do gerente sobre funcionarios
-    			  System.out.println("--aba funcionarios--");
-    			  System.out.println("1- Registrar novo gerente");
-    			  System.out.println("2- Registrar novo vendedor");
-    			  System.out.println("3- Alterar gerente");
-    			  System.out.println("4- Alterar vendendor");
-    			  System.out.println("5- excluir gerente");
-    			  System.out.println("6- excluir vendedor");
-    			  System.out.println("7- informações de um vendedor");
-    			  System.out.println("sua escolha: ");
-    			  op = scan.nextInt();
-    			  if(op == 1) {
-    				Gerente novo = new Gerente();
-    				novo.cadastra(gerentes);
-    			  }
-    			  else if(op == 2) {
-    				Vendedor novo = new Vendedor();
-    				novo.cadastra(vendedores,gerentes);
-    				vendedores.add(novo);
-    			  }
-    			  else if(op == 3) {
-    				  for(int i=0;i<gerentes.size();i++) {
-    					  System.out.println("Gerente["+i+"]: " + gerentes.get(i).getNome());
-    				  }
-    				  System.out.println("Digite o indice do gerente que deseja alterar: ");
-    				  gerentes.get(scan.nextInt()).altera();
-    			  }
-    			  else if(op == 4) {
-    				  for(int i=0;i<vendedores.size();i++) {
-    					  System.out.println("Vendedor["+i+"]: " + vendedores.get(i).getNome());
-    				  }
-    				  System.out.println("Digite o indice do vendedor que deseja alterar: ");
-    				  vendedores.get(scan.nextInt()).altera();
-    			  }
-    			  else if(op == 5) {
-    				  for(int i=0;i<gerentes.size();i++) {
-    					  System.out.println("Gerente["+i+"]: " + gerentes.get(i).getNome());
-    				  }
-    				  System.out.println("Digite o indice do gerente que deseja excluir: ");
-    				  gerentes.remove(scan.nextInt());
-    			  }
-    			  else if(op == 6) {
-    				  for(int i=0;i<vendedores.size();i++) {
-    					  System.out.println("Vendedor["+i+"]: " + vendedores.get(i).getNome());
-    				  }
-    				  System.out.println("Digite o indice do vendedor que deseja excluir: ");
-    				  vendedores.remove(scan.nextInt());
-    			  }
-    			  else if(op == 7) {
-    				  for(int i=0;i<vendedores.size();i++) {
-    					  System.out.println("Vendedor["+i+"]: " + vendedores.get(i).getNome());
-    				  }
-    				  System.out.println("Digite o indice do vendedor que deseja ver desempenho: ");
-    				  vendedores.get(scan.nextInt()).getLogin();
-    			  }
-    		  }
-    		  
-    		  
-    	  }while(opcao != 0);
-    	 
+        int opcao,op;
+        do {
+          
+          System.out.println("---Menu Gerente---");
+          System.out.println("1- Opções Clientes");
+          System.out.println("2- Opções Veiculos");
+          System.out.println("3- Opções Funcionarios");
+          System.out.println("0- Deslogar como gerente");
+          System.out.println("Sua escolha: ");
+          opcao = scan.nextInt();
+          
+          if(opcao == 1) { //opcoes do gerente sobre clientes
+            System.out.println("---Aba Clientes---");
+            System.out.println("1- Cadastrar novo cliente");
+            System.out.println("2- Alterar informações de um cliente");
+            System.out.println("3- excluir um cliente");
+            System.out.println("Sua escolha: ");
+            op = scan.nextInt();
+            
+            if(op == 1) { //cadastrar cliente
+              Cliente novo = new Cliente();
+              novo.cadastra();
+              clientes.add(novo);
+            }
+            else if(op == 2) { //alterar cliente
+              for(int i=0;i<clientes.size();i++) {
+                System.out.println("Cliente["+i+"]: "+ clientes.get(i).getNome());
+              }
+              System.out.println("Digite o indice do cliente que deseja alterar: ");
+              clientes.get(scan.nextInt()).altera();
+            }else if(op == 3) { //excluir cliente
+              for(int i=0;i<clientes.size();i++) {
+                System.out.println("Cliente["+i+"]: "+ clientes.get(i).getNome());
+              }
+              System.out.println("Digite o indice do cliente que deseja deletar: ");
+              clientes.remove(scan.nextInt());
+            }
+          }
+          else if(opcao == 2) {//opcoes do gerente sobre veiculos
+            
+            System.out.println("---Aba Veiculos---");
+            System.out.println("1- Cadastrar um carro");
+            System.out.println("2- Cadastrar uma moto");
+            System.out.println("3- Alterar um carro");
+            System.out.println("4- Alterar uma moto");
+            System.out.println("5- Excluir um carro");
+            System.out.println("6- Excluir uma moto");
+            System.out.println("sua escolha: ");
+            op = scan.nextInt();
+            if(op == 1) {
+              Carro novo = new Carro();
+              novo.cadastra();
+              carros.add(novo);
+            }
+            else if(op == 2) {
+                Motocicleta novo = new Motocicleta();
+                novo.cadastra();
+                motocicletas.add(novo);
+              }
+            else if(op == 3) {
+              for(int i=0;i<carros.size();i++) {                
+                System.out.println("Carro["+i+"]: " +carros.get(i).getMarca() + " " + carros.get(i).getModelo());
+              }
+              System.out.println("Digite o indice do carro que deseja alterar: ");
+              carros.get(scan.nextInt()).altera();
+            }
+            else if(op == 4) {
+              for(int i=0;i<motocicletas.size();i++) {                
+                System.out.println("Moto["+i+"]: " +motocicletas.get(i).getMarca() + " " + motocicletas.get(i).getModelo());
+              }
+              System.out.println("Digite o indice da moto que deseja alterar: ");
+              motocicletas.get(scan.nextInt()).altera();
+            }
+            else if(op == 5) {
+              for(int i=0;i<carros.size();i++) {                
+                System.out.println("Carro["+i+"]: " +carros.get(i).getMarca() + " " + carros.get(i).getModelo());
+              }
+              System.out.println("Digite o indice do carro que deseja excluir: ");
+              carros.remove(scan.nextInt());
+            }
+            else if(op == 6) {
+              for(int i=0;i<motocicletas.size();i++) {                
+                System.out.println("Moto["+i+"]: " +motocicletas.get(i).getMarca() + " " + motocicletas.get(i).getModelo());
+              }
+              System.out.println("Digite o indice da moto que deseja excluir: ");
+              motocicletas.remove(scan.nextInt());
+            }
+          }
+          else if(opcao == 3) { //opcoes do gerente sobre funcionarios
+            System.out.println("--aba funcionarios--");
+            System.out.println("1- Registrar novo gerente");
+            System.out.println("2- Registrar novo vendedor");
+            System.out.println("3- Alterar gerente");
+            System.out.println("4- Alterar vendendor");
+            System.out.println("5- excluir gerente");
+            System.out.println("6- excluir vendedor");
+            System.out.println("7- informações de um vendedor");
+            System.out.println("sua escolha: ");
+            op = scan.nextInt();
+            if(op == 1) {
+            Gerente novo = new Gerente();
+            novo.cadastra(gerentes);
+            }
+            else if(op == 2) {
+            Vendedor novo = new Vendedor();
+            novo.cadastra(vendedores,gerentes);
+            vendedores.add(novo);
+            }
+            else if(op == 3) {
+              for(int i=0;i<gerentes.size();i++) {
+                System.out.println("Gerente["+i+"]: " + gerentes.get(i).getNome());
+              }
+              System.out.println("Digite o indice do gerente que deseja alterar: ");
+              gerentes.get(scan.nextInt()).altera();
+            }
+            else if(op == 4) {
+              for(int i=0;i<vendedores.size();i++) {
+                System.out.println("Vendedor["+i+"]: " + vendedores.get(i).getNome());
+              }
+              System.out.println("Digite o indice do vendedor que deseja alterar: ");
+              vendedores.get(scan.nextInt()).altera();
+            }
+            else if(op == 5) {
+              for(int i=0;i<gerentes.size();i++) {
+                System.out.println("Gerente["+i+"]: " + gerentes.get(i).getNome());
+              }
+              System.out.println("Digite o indice do gerente que deseja excluir: ");
+              gerentes.remove(scan.nextInt());
+            }
+            else if(op == 6) {
+              for(int i=0;i<vendedores.size();i++) {
+                System.out.println("Vendedor["+i+"]: " + vendedores.get(i).getNome());
+              }
+              System.out.println("Digite o indice do vendedor que deseja excluir: ");
+              vendedores.remove(scan.nextInt());
+            }
+            else if(op == 7) {
+              for(int i=0;i<vendedores.size();i++) {
+                System.out.println("Vendedor["+i+"]: " + vendedores.get(i).getNome());
+              }
+              System.out.println("Digite o indice do vendedor que deseja ver desempenho: ");
+              vendedores.get(scan.nextInt()).getLogin();
+            }
+          }
+          
+          
+        }while(opcao != 0);
+       
       }
       else{
         //opções vendedor
-    	  int opcao,op;
-    	  do {
-    		  
-    		  System.out.println("--Menu vendedor--");
-        	  System.out.println("1- Realizar uma venda");
-        	  System.out.println("2- Mostrar veiculos");
-        	  System.out.println("3- Mostrar clientes");
-        	  System.out.println("4- Mostrar vendas");
-        	  System.out.println("0- Deslogar como vendedor");
-        	  System.out.println("sua escolha: ");
-        	  opcao = scan.nextInt();
-        	  
-        	  if(opcao == 1) {
-        		  System.out.println("1- Realizar compra a vista");
-        		  System.out.println("2- Realizar compra a prazo");
-        		  System.out.println("sua escolha: ");
-        		  op = scan.nextInt();
-        		  
-        		  if(op == 1) {
-        			  AVista novo = new AVista();
-        			  novo.cadastra(vendedores, clientes, motocicletas, carros);
-        			  vendas.add(novo);
-        		  }
-        		  else {
-        			 APrazo novo = new APrazo();
-        			 novo.cadastra(vendedores, clientes, motocicletas, carros);
-        			 vendas.add(novo);
-        		  }
-        	  }
-        	  else if(opcao == 4) {
-        		  for(int i=0;i<vendas.size();i++) {
-        			  System.out.println("Venda["+i+"]");
-        			  vendas.get(i).mostraVenda();
-        		  }
-        	  }
-    	  }while(opcao != 0);
-    	  
+        int opcao,op;
+        do {
+          
+          System.out.println("--Menu vendedor--");
+            System.out.println("1- Realizar uma venda");
+            System.out.println("2- Mostrar veiculos");
+            System.out.println("3- Mostrar clientes");
+            System.out.println("4- Mostrar vendas");
+            System.out.println("0- Deslogar como vendedor");
+            System.out.println("sua escolha: ");
+            opcao = scan.nextInt();
+            
+            if(opcao == 1) {
+              System.out.println("1- Realizar compra a vista");
+              System.out.println("2- Realizar compra a prazo");
+              System.out.println("sua escolha: ");
+              op = scan.nextInt();
+              
+              if(op == 1) {
+                AVista novo = new AVista();
+                novo.cadastra(vendedores, clientes, motocicletas, carros);
+                vendas.add(novo);
+              }
+              else {
+               APrazo novo = new APrazo();
+               novo.cadastra(vendedores, clientes, motocicletas, carros);
+               vendas.add(novo);
+              }
+            }
+            else if(opcao == 4) {
+              for(int i=0;i<vendas.size();i++) {
+                System.out.println("Venda["+i+"]");
+                vendas.get(i).mostraVenda();
+              }
+            }
+        }while(opcao != 0);
+        
       }
     }while(opLogin!=3);
   }

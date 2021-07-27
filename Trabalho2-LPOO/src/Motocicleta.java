@@ -4,7 +4,7 @@ public class Motocicleta extends Veiculo {
   private int tipo;// 1 trail, 2 street, 3 esportiva, 4 custom
   
   public Motocicleta() {
-	  super();
+    super();
   }
   public Motocicleta(int cilindradas, int tipo, int numeroChassi, String marca, String modelo, int ano, int km,
       int tipoCombustivel, double peso, boolean status) {
@@ -40,12 +40,12 @@ public class Motocicleta extends Veiculo {
     this.tipo = tipo;
   }
   public void cadastra() {
-	  Scanner scan = new Scanner(System.in);
-	  super.cadastra();
-	  System.out.println("Cilindradas: ");
-	  this.setCilindradas(scan.nextInt());
-	  System.out.println("Tipo: ");
-	  this.setTipo(scan.nextInt());
-	  System.out.println("Cadastro concluido!");
+    Scanner scan = new Scanner(System.in);
+    super.cadastra();
+    System.out.println("Cilindradas: ");
+    this.setCilindradas(scan.nextInt());
+    System.out.println("Tipo: ");
+    this.setTipo(scan.nextInt());
+    System.out.println("Cadastro concluido!");
   }
 }

@@ -5,7 +5,7 @@ public class Vendedor extends Funcionarios {
   private int tipo = 2;
   
   public Vendedor() {
-	  this(0, new Funcionarios(),"","","","",new Data(),new Data(),0);
+    this(0, new Funcionarios(),"","","","",new Data(),new Data(),0);
   }
 
   public Vendedor(int treinamentoRestante, Funcionarios responsavel,String login,String senha, String rg, String nome, Data dataNasc,
@@ -31,17 +31,17 @@ public class Vendedor extends Funcionarios {
     this.responsavel = responsavel;
   }
   public void cadastra(List<Funcionarios> vendedores, List<Funcionarios> gerentes) {
-	  Scanner scan = new Scanner(System.in);
-	  System.out.println("--Cadastrando vendedor--");
-	  super.cadastra(vendedores);
-	  System.out.println("Treinamento restante: ");
-	  this.setTreinamentoRestante(scan.nextInt());
-	  
-	  for(int i=0;i<gerentes.size();i++) {
-		  System.out.println("Gerente["+i+"]: "+gerentes.get(i).getNome());
-	  }
-	  System.out.println("Digite o indice do gerente responsavel: ");
-	  this.setResponsavel(gerentes.get(scan.nextInt()));
-	 
+    Scanner scan = new Scanner(System.in);
+    System.out.println("--Cadastrando vendedor--");
+    super.cadastra(vendedores);
+    System.out.println("Treinamento restante: ");
+    this.setTreinamentoRestante(scan.nextInt());
+    
+    for(int i=0;i<gerentes.size();i++) {
+      System.out.println("Gerente["+i+"]: "+gerentes.get(i).getNome());
+    }
+    System.out.println("Digite o indice do gerente responsavel: ");
+    this.setResponsavel(gerentes.get(scan.nextInt()));
+   
   }
 }

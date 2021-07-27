@@ -10,7 +10,7 @@ public class Funcionarios implements actions{
   private String senha;
   
   public Funcionarios() {
-	  this("","","","",new Data(),new Data(),0);
+    this("","","","",new Data(),new Data(),0);
   }
   
   public Funcionarios(String login,String senha,String rg, String nome, Data dataNasc, Data dataAdmissao, double salario) {
@@ -86,50 +86,50 @@ public class Funcionarios implements actions{
     this.salario = salario;
   }
   public void cadastra( List<Funcionarios> funcionarios) {
-	  Scanner scan=new Scanner(System.in);
-	    while(true){
-	      boolean login_repetido=false;
-	      System.out.printf("Digite o login: ");
-	      String auxLogin=scan.nextLine();
-	      for(int i=0;i<funcionarios.size();i++){
-	        if(funcionarios.get(i).getLogin().equals(auxLogin)){
-	          login_repetido=true;
-	          break;
-	        }
-	      }
-	      if(login_repetido)
-	        System.out.println("Login ja existente. tente novamente.");
-	      else{
-	        setLogin(auxLogin);
-	        break;
-	      }
-	    }
-	    System.out.printf("Digite a senha: ");
-	    setSenha(scan.next());
-	    System.out.printf("Digite o RG: ");
-	    setRg(scan.next());
-	    System.out.printf("Digite o nome: ");
-	    scan.nextLine();
-	    setNome(scan.nextLine());
-	    System.out.printf("Digite o dia mes e ano em que nasceu separado por espaco: ");
-	    setDataNasc(new Data(scan.nextInt(),scan.nextInt(),scan.nextInt()));
-	    System.out.printf("Digite o dia mes e ano em que foi admitido separado por espaco: ");
-	    setDataAdmissao(new Data(scan.nextInt(),scan.nextInt(),scan.nextInt()));
-	    System.out.printf("Digite o salario: ");
-	    setSalario(scan.nextDouble());
+    Scanner scan=new Scanner(System.in);
+      while(true){
+        boolean login_repetido=false;
+        System.out.printf("Digite o login: ");
+        String auxLogin=scan.nextLine();
+        for(int i=0;i<funcionarios.size();i++){
+          if(funcionarios.get(i).getLogin().equals(auxLogin)){
+            login_repetido=true;
+            break;
+          }
+        }
+        if(login_repetido)
+          System.out.println("Login ja existente. tente novamente.");
+        else{
+          setLogin(auxLogin);
+          break;
+        }
+      }
+      System.out.printf("Digite a senha: ");
+      setSenha(scan.next());
+      System.out.printf("Digite o RG: ");
+      setRg(scan.next());
+      System.out.printf("Digite o nome: ");
+      scan.nextLine();
+      setNome(scan.nextLine());
+      System.out.printf("Digite o dia mes e ano em que nasceu separado por espaco: ");
+      setDataNasc(new Data(scan.nextInt(),scan.nextInt(),scan.nextInt()));
+      System.out.printf("Digite o dia mes e ano em que foi admitido separado por espaco: ");
+      setDataAdmissao(new Data(scan.nextInt(),scan.nextInt(),scan.nextInt()));
+      System.out.printf("Digite o salario: ");
+      setSalario(scan.nextDouble());
   }
   public void altera() {
-	  Scanner scan = new Scanner(System.in);
-	  
-	  System.out.printf("Digite a nova senha: ");
-	  setSenha(scan.next());
-	  System.out.printf("Redefina o RG: ");
-	  setRg(scan.next());
-	  System.out.printf("Redefina o nome: ");
-	  scan.nextLine();
-	  setNome(scan.nextLine());
-	  System.out.println("Novo salario: ");
-	  setSalario(scan.nextDouble()); 
-	  
+    Scanner scan = new Scanner(System.in);
+    
+    System.out.printf("Digite a nova senha: ");
+    setSenha(scan.next());
+    System.out.printf("Redefina o RG: ");
+    setRg(scan.next());
+    System.out.printf("Redefina o nome: ");
+    scan.nextLine();
+    setNome(scan.nextLine());
+    System.out.println("Novo salario: ");
+    setSalario(scan.nextDouble()); 
+    
   }
 }
