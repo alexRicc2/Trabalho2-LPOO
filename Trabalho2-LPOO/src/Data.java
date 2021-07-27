@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Data implements generalActions{
+public class Data {
   private int dia;
   private int mes;
   private int ano;
@@ -65,7 +65,7 @@ public class Data implements generalActions{
   }
 
   public void printData() {
-    System.out.println("Data: " + this.getDia() + "/" + this.getMes() + "/" + this.getAno());
+    System.out.println("Data: " + this.getDia() + "/" + this.getMes() + "/" + this.getAno()+"\n");
   }
   public void cadastra() {
     Scanner scan = new Scanner(System.in);

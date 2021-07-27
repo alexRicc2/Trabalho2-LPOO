@@ -24,7 +24,6 @@ public class Gerente extends Funcionarios{
     Scanner scan = new Scanner(System.in);
     System.out.println("--Cadastrando um novo gerente--");
     super.cadastra(gerentes);
-    
     System.out.printf("Digite a quantidade de anos de experiencia: ");
     anosExperiencia=scan.nextInt();
     gerentes.add(this);

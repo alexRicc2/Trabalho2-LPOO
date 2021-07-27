@@ -1,8 +1,6 @@
 import java.util.*;
 public class APrazo extends Venda{
-  private int quantPrazos;
-  private int tipo = 2;
-  
+  private int quantPrazos; 
   
   public int getQuantPrazos() {
     return quantPrazos;
@@ -19,14 +17,24 @@ public class APrazo extends Venda{
     
     this.setValorFinal(this.getValor() * juros);
   }
-  public void cadastra(List <Funcionarios> vendedores, List <Cliente> clientes, List <Veiculo> motos, List <Veiculo> carros) {
+  public boolean cadastra(List<Venda> vendas, Funcionarios vendedor, List <Cliente> clientes, List <Motocicleta> motos, List <Carro> carros) {
     Scanner scan = new Scanner(System.in);
     
-    super.cadastra(vendedores, clientes, motos, carros);
-    System.out.println("Quantidade de parcelas (12x 24x 36x): ");
-    this.setQuantPrazos(scan.nextInt());
-    this.calculaValoFinal();
-    System.out.println("Valor final: "+ this.getValorFinal()+ "\nVenda realizada com sucesso!");
-    
+    if(super.cadastra(vendas, vendedor, clientes, motos, carros)){
+      System.out.printf("Quantidade de parcelas (12, 24, 36): ");
+      this.setQuantPrazos(scan.nextInt());
+      this.calculaValoFinal();
+      System.out.println("Valor final: "+ this.getValorFinal()+ "\nVenda realizada com sucesso!");
+      return true;
+    }
+    return false;
+  }
+  public void mostraVenda() {
+    System.out.println("Tipo de venda: A Prazo.");
+    System.out.println("Nome do vendedor: "+ this.getVendedor().getNome());
+    System.out.println("Nome do cliente: "+ this.getCliente().getNome());
+    System.out.println("Veiculo vendido: "+ this.getVeiculo().getModelo());
+    System.out.println("Parcelas: "+quantPrazos);
+    System.out.println("Valor final: "+ this.getValorFinal());
   }
 }

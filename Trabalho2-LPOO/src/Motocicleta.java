@@ -42,9 +42,9 @@ public class Motocicleta extends Veiculo {
   public void cadastra() {
     Scanner scan = new Scanner(System.in);
     super.cadastra();
-    System.out.println("Cilindradas: ");
+    System.out.printf("Cilindradas: ");
     this.setCilindradas(scan.nextInt());
-    System.out.println("Tipo: ");
+    System.out.printf("Tipo(1 trail, 2 street, 3 esportiva, 4 custom): ");
     this.setTipo(scan.nextInt());
     System.out.println("Cadastro concluido!");
   }

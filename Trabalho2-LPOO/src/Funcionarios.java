@@ -1,5 +1,5 @@
 import java.util.*;
-public class Funcionarios implements actions{
+public class Funcionarios {
   private int tipo;
   private String rg;
   private String nome;
@@ -128,7 +128,7 @@ public class Funcionarios implements actions{
     System.out.printf("Redefina o nome: ");
     scan.nextLine();
     setNome(scan.nextLine());
-    System.out.println("Novo salario: ");
+    System.out.printf("Novo salario: ");
     setSalario(scan.nextDouble()); 
     
   }

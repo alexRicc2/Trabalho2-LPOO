@@ -1,8 +1,7 @@
 import java.util.*;
 
-public class Venda implements generalActions{
+public class Venda {
   private int id;
-  private int tipo;
   private Funcionarios vendedor;
   private Cliente cliente;
   private Veiculo veiculo;
@@ -25,15 +24,7 @@ private Data data;
     this.hora = hora;
   }
 
-  public int getTipo() {
-  return tipo;
-  }
-
-  public void setTipo(int tipo) {
-  this.tipo = tipo;
-  }
-
-public double getValorFinal() {
+  public double getValorFinal() {
     return valorFinal;
   }
   
@@ -96,61 +87,75 @@ public double getValorFinal() {
     this.hora = hora;
   }
   
-  public void cadastra() {
+  public boolean cadastra(List<Venda> vendas, Funcionarios vendedor, List <Cliente> clientes, List <Motocicleta> motos, List <Carro> carros) {
     Scanner scan = new Scanner(System.in);
+    int op;
+    
     System.out.println("--Realizando uma venda--");
-    System.out.println("ID da venda: ");
-    this.setId(scan.nextInt());
-    System.out.println("Valor inicial da venda: ");
+    int idVenda;
+    while(true){
+      boolean achado=false;
+      System.out.printf("ID da venda: ");
+      idVenda=scan.nextInt();
+      for(int i=0;i<vendas.size();i++){
+        if(vendas.get(i).getId()==idVenda){
+          System.out.println("ID repetido. Tente novamente.");
+          achado=true;
+          break;
+        }
+      }
+      if(!achado)
+        break;
+    }
+    this.setId(idVenda);
+    System.out.printf("Valor inicial da venda: ");
     this.setValor(scan.nextDouble());
     this.data.cadastra();
     this.hora.cadastra();
     
-  }
-  public void cadastra(List <Funcionarios> vendedores, List <Cliente> clientes, List <Veiculo> motos, List <Veiculo> carros) {
-    Scanner scan = new Scanner(System.in);
-    int op;
-    
-    this.cadastra();
-    for(int i=0;i<vendedores.size();i++) {
-      System.out.println("Vendedor["+i+"]: "+vendedores.get(i).getNome());
-    }
-    System.out.println("Digite o indice do vendedor que esta realizando a venda: ");
-    this.setVendedor(vendedores.get(scan.nextInt()));
+    this.setVendedor(vendedor);
     
     for(int i=0;i<clientes.size();i++) {
       System.out.println("Cliente["+i+"]: "+clientes.get(i).getNome());
     }
-    System.out.println("Digite o indice do cliente que esta realizando a compra: ");
+    System.out.printf("Digite o indice do cliente que esta realizando a compra: ");
     this.setCliente(clientes.get(scan.nextInt()));
     
     System.out.println("1- comprar um carro");
     System.out.println("2- comprar uma moto");
-    System.out.println("escolha: ");
+    System.out.printf("escolha: ");
     op = scan.nextInt();
     if(op == 1) {
-      for(int i=0;i<carros.size();i++) {
-        System.out.println("Carro["+i+"]: "+carros.get(i).getModelo());
+      if(carros.size()==0){
+        System.out.println("Nao existem carros cadastrados.");
+        return false;
       }
-      System.out.println("Digite o indice do carro que esta sendo comprado: ");
-      this.setVeiculo(carros.get(scan.nextInt()));  
+      else{
+        for(int i=0;i<carros.size();i++) {
+          System.out.println("Carro["+i+"]: "+carros.get(i).getModelo());
+        }
+        System.out.printf("Digite o indice do carro que esta sendo comprado: ");
+        this.setVeiculo(carros.get(scan.nextInt()));  
+      }
     }
     else {
-      for(int i=0;i<motos.size();i++) {
-        System.out.println("Motos["+i+"]: "+motos.get(i).getModelo());
+      if(motos.size()==0){
+        System.out.println("Nao existem motos cadastradas.");
+        return false;
       }
-      System.out.println("Digite o indice da moto que esta sendo comprada: ");
-      this.setVeiculo(motos.get(scan.nextInt()));  
+      else{
+        for(int i=0;i<motos.size();i++) {
+          System.out.println("Motos["+i+"]: "+motos.get(i).getModelo());
+        }
+        System.out.printf("Digite o indice da moto que esta sendo comprada: ");
+        this.setVeiculo(motos.get(scan.nextInt()));  
+      }
     }
+    return true;
   }
   public void altera() {
     
   }
   public void mostraVenda() {
-    System.out.println("Tipo de pagamento: "+this.getTipo());
-    System.out.println("Nome do vendedor: "+ this.vendedor.getNome());
-    System.out.println("Nome do cliente: "+ this.cliente.getNome());
-    System.out.println("Veiculo vendido: "+ this.veiculo.getModelo());
-    System.out.println("Valor final: "+ this.getValorFinal());
   }
 }

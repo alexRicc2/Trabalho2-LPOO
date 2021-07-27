@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Hora implements generalActions{
+public class Hora {
   private int hora;
   private int minuto;
   

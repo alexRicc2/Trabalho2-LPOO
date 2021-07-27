@@ -1,7 +1,7 @@
 // Número do chassi, marca, modelo, ano, quilometragem, tipo de
 // combustível, peso, status (vendido, a venda).
 import java.util.*;
-public class Veiculo implements generalActions{
+public class Veiculo {
   private int numeroChassi;
   private String marca;
   private String modelo;
@@ -110,18 +110,18 @@ public class Veiculo implements generalActions{
   
   public void cadastra() {
     Scanner scan = new Scanner(System.in);
-    System.out.println("Numero do chassi: ");
+    System.out.printf("Numero do chassi: ");
     this.setNumeroChassi(scan.nextInt());
-    System.out.println("Marca do veiculo: ");
+    System.out.printf("Marca do veiculo: ");
     scan.nextLine();
     this.setMarca(scan.nextLine());
-    System.out.println("Modelo do veiculo: ");
+    System.out.printf("Modelo do veiculo: ");
     this.setModelo(scan.nextLine());
-    System.out.println("Ano do veiculo: ");
+    System.out.printf("Ano do veiculo: ");
     this.setAno(scan.nextInt());
-    System.out.println("Kilometragem do veiculo: ");
+    System.out.printf("Kilometragem do veiculo: ");
     this.setKm(scan.nextInt());
-    System.out.println("Tipo combustivel (1 ou 2): ");
+    System.out.printf("Tipo combustivel (1 gasolina, 2 alcool): ");
     this.setTipoCombustivel(scan.nextInt());
   }
   public void altera() {
@@ -137,37 +137,37 @@ public class Veiculo implements generalActions{
       System.out.println("5- alterar kilometragem");
       System.out.println("6- alterar tipo do combustivel");
       System.out.println("7- sair");
-      System.out.println("escolha: ");
+      System.out.printf("escolha: ");
       op = scan.nextInt();
       
       if(op == 1) {
         System.out.println("Numero do chassi atual: "+this.getNumeroChassi());
-        System.out.println("Novo numero de chassi: ");
+        System.out.printf("Novo numero de chassi: ");
         this.setNumeroChassi(scan.nextInt());
       }
       else if(op == 2) {
         System.out.println("modelo atual do veiculo: "+this.getModelo());
-        System.out.println("novo modelo: ");
+        System.out.printf("novo modelo: ");
         this.setModelo(scan.nextLine());
       }
       else if(op == 3) {
         System.out.println("marca atual do veiculo: "+this.getMarca());
-        System.out.println("nova marca: ");
+        System.out.printf("nova marca: ");
         this.setMarca(scan.nextLine());
       }
       else if(op == 4) {
         System.out.println("ano atual do veiculo: "+this.getAno());
-        System.out.println("novo ano: ");
+        System.out.printf("novo ano: ");
         this.setAno(scan.nextInt());
       }
       else if(op == 5) {
         System.out.println("kilometragem atual do veiculo: "+this.getKm());
-        System.out.println("nova kilometragem: ");
+        System.out.printf("nova kilometragem: ");
         this.setKm(scan.nextInt());
       }
       else if(op == 6) {
         System.out.println("tipo do combustivel atual do veiculo: "+this.getTipoCombustivel());
-        System.out.println("novo tipo de combustivel: ");
+        System.out.printf("novo tipo de combustivel: ");
         this.setTipoCombustivel(scan.nextInt());
       }
     }while(op!=7);

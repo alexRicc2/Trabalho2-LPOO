@@ -34,13 +34,13 @@ public class Vendedor extends Funcionarios {
     Scanner scan = new Scanner(System.in);
     System.out.println("--Cadastrando vendedor--");
     super.cadastra(vendedores);
-    System.out.println("Treinamento restante: ");
+    System.out.printf("Treinamento restante: ");
     this.setTreinamentoRestante(scan.nextInt());
     
     for(int i=0;i<gerentes.size();i++) {
       System.out.println("Gerente["+i+"]: "+gerentes.get(i).getNome());
     }
-    System.out.println("Digite o indice do gerente responsavel: ");
+    System.out.printf("Digite o indice do gerente responsavel: ");
     this.setResponsavel(gerentes.get(scan.nextInt()));
    
   }

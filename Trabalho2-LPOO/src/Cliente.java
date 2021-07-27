@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Cliente implements generalActions{
+public class Cliente {
   private String cpf;
   private String nome;
   private Data dataNasc;
@@ -19,6 +19,17 @@ public class Cliente implements generalActions{
     this.endereco = endereco;
     this.renda = renda;
     this.dependentes = dependentes;
+  }
+  
+  public void printCliente(){
+    System.out.printf("Nome: %s\nCPF: %s\n Data de Nascimento: ",nome,cpf);
+    dataNasc.printData();
+    System.out.printf("Endereco: rua %s %d, %s\n",endereco.getRua(),endereco.getNumero(),endereco.getBairro());
+    System.out.printf("Renda: %.2f\n",renda);
+    System.out.printf("Dependentes: ");
+    for(int i=0;i<dependentes.size();i++){
+      System.out.printf("%s -- ",dependentes.get(i));
+    }
   }
 
   public String getCpf() {
@@ -70,21 +81,21 @@ public class Cliente implements generalActions{
   }
   public void cadastra() {
     Scanner scan = new Scanner(System.in);
-    System.out.println("Nome do cliente: ");
+    System.out.printf("Nome do cliente: ");
     this.setNome(scan.nextLine());
-    System.out.println("CPF do cliente: ");
+    System.out.printf("CPF do cliente: ");
     this.setCpf(scan.nextLine());
     System.out.printf("Digite o dia mes e ano em que o cliente nasceu separado por espaco: ");
     this.setDataNasc(new Data(scan.nextInt(),scan.nextInt(),scan.nextInt()));
     this.endereco.cadastra();
-    System.out.println("Renda do cliente: ");
+    System.out.printf("Renda do cliente: ");
     this.setRenda(scan.nextDouble());
-    System.out.println("Quantidade de dependentes: ");
+    System.out.printf("Quantidade de dependentes: ");
     int quant = scan.nextInt();
     List<String> depen = new ArrayList<>();
     scan.nextLine();
     for(int i=0;i<quant;i++) {
-      System.out.println("Nome do Dependente ["+i+"]: ");
+      System.out.printf("Nome do Dependente ["+i+"]: ");
       depen.add(scan.nextLine());
     }
     this.setDependentes(depen);
@@ -100,22 +111,22 @@ public class Cliente implements generalActions{
       System.out.println("3- Alterar renda do cliente");
       System.out.println("4- Alterar endereco do cliente");
       System.out.println("5- sair");
-      System.out.println("Escolha: ");
+      System.out.printf("Escolha: ");
       op = scan.nextInt();
       
       if(op == 1) {
         System.out.println("Nome atual: "+this.getNome());
-        System.out.println("Novo nome: ");
+        System.out.printf("Novo nome: ");
         this.setNome(scan.nextLine());
       }
       if(op == 2) {
         System.out.println("CPF atual: "+this.getCpf());
-        System.out.println("Novo CPF: ");
+        System.out.printf("Novo CPF: ");
         this.setCpf(scan.nextLine());
       }
       else if(op == 3) {
         System.out.println("Renda atual: "+this.getRenda());
-        System.out.println("Nova Renda: ");
+        System.out.printf("Nova Renda: ");
         this.setRenda(scan.nextDouble());
       }
       else if(op ==4) {

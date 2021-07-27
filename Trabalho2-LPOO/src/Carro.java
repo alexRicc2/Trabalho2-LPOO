@@ -10,9 +10,10 @@ public class Carro extends Veiculo {
   private double largura;
   private double comprimento;
   
-  public Carro() {
+  public Carro(){
     super();
   }
+  
   public Carro(int potencia, int numeroCilindros, int numeroOcupantes, int tipo, double altura, double largura,
       double comprimento, int numeroChassi, String marca, String modelo, int ano, int km, int tipoCombustivel,
       double peso, boolean status) {
@@ -40,7 +41,7 @@ public class Carro extends Veiculo {
       case 5:
         System.out.printf("Esportivo\n");
     }
-    System.out.printf("Dimensoes: %dx%dx%d", comprimento, largura, altura);
+    System.out.printf("Dimensoes: %dx%dx%d\n", comprimento, largura, altura);
     printaVeiculo();
   }
 
@@ -102,19 +103,19 @@ public class Carro extends Veiculo {
   public void cadastra() {
     Scanner scan = new Scanner(System.in);
     super.cadastra();
-    System.out.println("Potencia: ");
+    System.out.printf("Potencia: ");
     this.setPotencia(scan.nextInt());
-    System.out.println("Numero de cilindros: ");
+    System.out.printf("Numero de cilindros: ");
     this.setNumeroCilindros(scan.nextInt());
-    System.out.println("Numero de ocupantes: ");
+    System.out.printf("Numero de ocupantes: ");
     this.setNumeroOcupantes(scan.nextInt());
-    System.out.println("tipo: ");
+    System.out.printf("tipo(1 utilitario,2 pickup,3 sedan,4 hatch,5 esportivo): ");
     this.setTipo(scan.nextInt());
-    System.out.println("Altura: ");
+    System.out.printf("Altura: ");
     this.setAltura(scan.nextDouble());
-    System.out.println("Largura: ");
+    System.out.printf("Largura: ");
     this.setLargura(scan.nextDouble());
-    System.out.println("Comprimento: ");
+    System.out.printf("Comprimento: ");
     this.setComprimento(scan.nextDouble());
     System.out.println("Cadastro concluido!");
   }
