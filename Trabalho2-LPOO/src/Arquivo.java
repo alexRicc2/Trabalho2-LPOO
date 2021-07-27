@@ -1,11 +1,10 @@
 import java.io.*;
 import java.util.*;
-public abstract class Arquivo{
+public class Arquivo{
   //função auxiliar.
   public static String[] lerAux(String arq){
     String[] dados2;
     String dados="";
-    //tava tendo q inicializar pra poder retornar caso o try falhasse
     dados2=dados.split("");
     try{
       FileReader arquivo=new FileReader(arq);
@@ -24,7 +23,7 @@ public abstract class Arquivo{
   }
   
   //pega todas as informações dos arquivos.
-  public static void ler(List<Funcionarios> gerentes,List<Funcionarios> vendedores,List<Cliente> clientes,List<Carro> carros,List<Motocicleta> motocicletas,List<Venda> vendas){
+  public void ler(List<Funcionarios> gerentes,List<Funcionarios> vendedores,List<Cliente> clientes,List<Carro> carros,List<Motocicleta> motocicletas,List<Venda> vendas){
     String[] gerentesArq,vendedoresArq,clientesArq,carrosArq,motocicletasArq,aVistaArq,aPrazoArq;
     gerentesArq=lerAux("gerentes.dat");
     vendedoresArq=lerAux("vendedores.dat");
@@ -272,7 +271,7 @@ public abstract class Arquivo{
     }
     
   }
-  public static void escrever(List<Funcionarios> gerentes,List<Funcionarios> vendedores,List<Cliente> clientes,
+  public void escrever(List<Funcionarios> gerentes,List<Funcionarios> vendedores,List<Cliente> clientes,
   List<Carro> carros,List<Motocicleta> motocicletas,List<Venda> vendas){
     // avista.dat
     // aprazo.dat

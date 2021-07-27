@@ -12,8 +12,9 @@ public class Principal extends Arquivo{
     int logado=-1;//guarda o indice do funcionario logado.
     Scanner scan=new Scanner(System.in);
     int opLogin;
+    Arquivo arq=new Arquivo();
     //le os arquivos
-    ler(gerentes,vendedores,clientes,carros,motocicletas,vendas);
+    arq.ler(gerentes,vendedores,clientes,carros,motocicletas,vendas);
     
     //logando gerente ou vendedor.
     do{
@@ -329,6 +330,6 @@ public class Principal extends Arquivo{
         }while(opcao != 0);
       }
     }while(opLogin!=3);
-    escrever(gerentes,vendedores,clientes,carros,motocicletas,vendas);
+    arq.escrever(gerentes,vendedores,clientes,carros,motocicletas,vendas);
   }
 }
