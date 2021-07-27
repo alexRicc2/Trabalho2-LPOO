@@ -273,23 +273,30 @@ public abstract class Arquivo{
     }
     
   }
-  // public static void escrever(String arq,ArrayList<Livro> livros){
-  //   try{
-  //     File arquivo;
-  //     arquivo=new File(arq);
-  //     FileWriter escrever=new FileWriter(arquivo,false);
-  //     for(int i=0;i<livros.size();i++){
-  //       //isbn;titulo;autor1:autor2:autor3;editora;anoPub;numPags;
-  //       escrever.write(livros.get(i).getIsbn()+";"+livros.get(i).getTitulo()+";");
-  //       for(int j=0;j<livros.get(i).getAutores().size();j++){
-  //         escrever.write(livros.get(i).getAutores().get(j)+":");
-  //       }
-  //       escrever.write(";"+livros.get(i).getEditora()+";"+livros.get(i).getAnoPublicacao()+";"+livros.get(i).getNumPags()+";"+"\n");
-  //     }
-  //     escrever.close();
-  //   }
-  //   catch(IOException e){
-  //     System.out.println("Erro.");
-  //   }
-  // }
+  public static void escrever(List<Funcionarios> gerentes,List<Funcionarios> vendedores,List<Cliente> clientes,
+  List<Carro> carros,List<Motocicleta> motocicletas,List<Venda> vendas){
+    // gerentes.dat
+    // vendedores.dat
+    // clientes.dat
+    // carros.dat
+    // motocicletas.dat
+    // avista.dat
+    // aprazo.dat
+    try{
+      File arquivo;
+      arquivo=new File("gerentes.dat");
+      FileWriter escrever=new FileWriter(arquivo,false);
+      for(int i=0;i<gerentes.size();i++){
+        Funcionarios gerente=gerentes.get(i);
+        //experiencia;login;senha;rg;nome;diaNasc;anoNas;mesNas;diaAdm;mesAdm;anoAdm;salario;
+        escrever.write(gerente.getAnosExperiencia()+";"+gerente.getLogin()+";"+gerente.getSenha()+";"+gerente.getRg()+";"+gerente.getNome()+";"+gerente.getDataNasc().getDia()
+        +";"+gerente.getDataNasc().getMes()+";"+gerente.getDataNasc().getAno()+";"+gerente.getDataAdmissao().getDia()+";"+gerente.getDataAdmissao().getMes()
+        +";"+gerente.getDataAdmissao().getAno()+";"+gerente.getSalario()+";\n");
+      }
+      escrever.close();
+    }
+    catch(IOException e){
+      System.out.println("Erro.");
+    }
+  }
 }

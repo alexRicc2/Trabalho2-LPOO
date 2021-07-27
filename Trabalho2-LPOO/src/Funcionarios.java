@@ -85,6 +85,10 @@ public class Funcionarios {
   public void setSalario(double salario) {
     this.salario = salario;
   }
+  
+  public int getAnosExperiencia(){
+    return 0;
+  }
   public void cadastra( List<Funcionarios> funcionarios) {
     Scanner scan=new Scanner(System.in);
       while(true){

@@ -329,5 +329,6 @@ public class Principal extends Arquivo{
         }while(opcao != 0);
       }
     }while(opLogin!=3);
+    escrever(gerentes,vendedores,clientes,carros,motocicletas,vendas);
   }
 }
