@@ -84,7 +84,7 @@ public class Venda {
   public boolean cadastra(List<Venda> vendas, Funcionarios vendedor, List <Cliente> clientes, List <Motocicleta> motos, List <Carro> carros) {
     Scanner scan = new Scanner(System.in);
     int op;
-    
+    boolean disponivel=false;
     System.out.println("--Realizando uma venda--");
     int idVenda;
     while(true){
@@ -126,10 +126,20 @@ public class Venda {
       }
       else{
         for(int i=0;i<carros.size();i++) {
-          System.out.println("Carro["+i+"]: "+carros.get(i).getModelo());
+          if(!carros.get(i).getStatus()){
+            System.out.println("Carro["+i+"]: "+carros.get(i).getModelo());
+            disponivel=true;
+          }
         }
-        System.out.printf("Digite o indice do carro que esta sendo comprado: ");
-        this.setVeiculo(carros.get(scan.nextInt()));  
+        if(disponivel){
+          System.out.printf("Digite o indice do carro que esta sendo comprado: ");
+          this.setVeiculo(carros.get(scan.nextInt()));  
+          this.getVeiculo().setStatus(true);
+        }
+        else{
+          System.out.println("Nao existem carros disponiveis.");
+          return false;
+        }
       }
     }
     else {
@@ -139,16 +149,23 @@ public class Venda {
       }
       else{
         for(int i=0;i<motos.size();i++) {
-          System.out.println("Motos["+i+"]: "+motos.get(i).getModelo());
+          if(!motos.get(i).getStatus()){
+            System.out.println("Motos["+i+"]: "+motos.get(i).getModelo());
+            disponivel=true;
+          }
         }
-        System.out.printf("Digite o indice da moto que esta sendo comprada: ");
-        this.setVeiculo(motos.get(scan.nextInt()));  
+        if(disponivel){
+          System.out.printf("Digite o indice da moto que esta sendo comprada: ");
+          this.setVeiculo(motos.get(scan.nextInt()));  
+          this.getVeiculo().setStatus(true);
+        }
+        else{
+          System.out.println("Nao existem motos disponiveis.");
+          return false;
+        }
       }
     }
     return true;
-  }
-  public void altera() {
-    
   }
   public void mostraVenda() {
   }

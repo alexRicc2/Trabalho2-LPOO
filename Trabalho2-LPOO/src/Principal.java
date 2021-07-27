@@ -278,13 +278,13 @@ public class Principal extends Arquivo{
               
               if(op == 1) {
                 AVista novo = new AVista();
-                novo.cadastra(vendas, vendedores.get(logado), clientes, motocicletas, carros);
-                vendas.add(novo);
+                if(novo.cadastra(vendas, vendedores.get(logado), clientes, motocicletas, carros))
+                  vendas.add(novo);
               }
               else {
-               APrazo novo = new APrazo();
-               novo.cadastra(vendas, vendedores.get(logado), clientes, motocicletas, carros);
-               vendas.add(novo);
+                APrazo novo = new APrazo();
+                if(novo.cadastra(vendas, vendedores.get(logado), clientes, motocicletas, carros))
+                  vendas.add(novo);
               }
             }
             }

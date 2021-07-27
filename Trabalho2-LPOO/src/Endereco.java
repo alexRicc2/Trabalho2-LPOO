@@ -69,7 +69,7 @@ public class Endereco {
       System.out.println("3- Alterar nome do bairro");
       System.out.println("4- Alterar nome da cidade");
       System.out.println("5- sair");
-      System.out.println("Escolha: ");
+      System.out.printf("Escolha: ");
       op = scan.nextInt();
       
       if(op == 1) {

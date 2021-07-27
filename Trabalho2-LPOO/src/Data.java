@@ -69,10 +69,7 @@ public class Data {
   }
   public void cadastra() {
     Scanner scan = new Scanner(System.in);
-    System.out.println("Digite o dia, mes e ano separado por espaços: ");
+    System.out.printf("Digite o dia, mes e ano separado por espaços: ");
     this.setDia(scan.nextInt()); this.setMes(scan.nextInt()); this.setAno(scan.nextInt());
-  }
-  public void altera() {
-    
   }
 }
