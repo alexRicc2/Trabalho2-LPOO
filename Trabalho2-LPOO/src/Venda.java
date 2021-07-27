@@ -50,7 +50,9 @@ public class Venda {
   public Hora getHora() {
     return this.hora;
   }
-
+  public int getQuantPrazos(){
+    return 0;
+  }
   public void setId(int id) {
     this.id = id;
   }

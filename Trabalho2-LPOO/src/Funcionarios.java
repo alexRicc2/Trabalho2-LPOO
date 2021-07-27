@@ -89,6 +89,12 @@ public class Funcionarios {
   public int getAnosExperiencia(){
     return 0;
   }
+  public int getTreinamentoRestante(){
+    return 0;
+  }
+  public Funcionarios getResponsavel(){
+    return new Funcionarios();
+  }
   public void cadastra( List<Funcionarios> funcionarios) {
     Scanner scan=new Scanner(System.in);
       while(true){

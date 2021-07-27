@@ -102,8 +102,8 @@ public class Cliente {
         System.out.printf("Nome do Dependente ["+i+"]: ");
         depen.add(scan.nextLine());
       }
-      this.setDependentes(depen);
     }
+    this.setDependentes(depen);
     System.out.println("Cadastro concluido!!");
   }
   public void altera() {

@@ -23,7 +23,7 @@ public class Vendedor extends Funcionarios {
     this.treinamentoRestante = treinamentoRestante;
   }
 
-  public Funcionarios getRminutoesponsavel() {
+  public Funcionarios getResponsavel() {
     return this.responsavel;
   }
 

@@ -128,7 +128,6 @@ public abstract class Arquivo{
         ));
       }
     }
-   
     if(carrosArq[0]!=""){
       for(int i=0;i<carrosArq.length;i+=15){
         carros.add(new Carro(
@@ -275,11 +274,6 @@ public abstract class Arquivo{
   }
   public static void escrever(List<Funcionarios> gerentes,List<Funcionarios> vendedores,List<Cliente> clientes,
   List<Carro> carros,List<Motocicleta> motocicletas,List<Venda> vendas){
-    // gerentes.dat
-    // vendedores.dat
-    // clientes.dat
-    // carros.dat
-    // motocicletas.dat
     // avista.dat
     // aprazo.dat
     try{
@@ -292,6 +286,76 @@ public abstract class Arquivo{
         escrever.write(gerente.getAnosExperiencia()+";"+gerente.getLogin()+";"+gerente.getSenha()+";"+gerente.getRg()+";"+gerente.getNome()+";"+gerente.getDataNasc().getDia()
         +";"+gerente.getDataNasc().getMes()+";"+gerente.getDataNasc().getAno()+";"+gerente.getDataAdmissao().getDia()+";"+gerente.getDataAdmissao().getMes()
         +";"+gerente.getDataAdmissao().getAno()+";"+gerente.getSalario()+";\n");
+      }
+      arquivo=new File("vendedores.dat");
+      escrever.close();
+      escrever=new FileWriter(arquivo,false);
+      for(int i=0;i<vendedores.size();i++){
+        Funcionarios vendedor=vendedores.get(i);
+        //treinamento;loginGerente;login;senha;rg;nome;diaNasc;mesNasc;anoNasc;diaAdm;mesAdm;anoAdm;salario;
+        escrever.write(vendedor.getTreinamentoRestante()+";"+vendedor.getResponsavel().getLogin()+";"+vendedor.getLogin()+";"+vendedor.getSenha()+";"+vendedor.getRg()
+        +";"+vendedor.getNome()+";"+vendedor.getDataNasc().getDia()+";"+vendedor.getDataNasc().getMes()+";"+vendedor.getDataNasc().getAno()+";"+vendedor.getDataAdmissao().getDia()+";"+vendedor.getDataAdmissao().getMes()
+        +";"+vendedor.getDataAdmissao().getAno()+";"+vendedor.getSalario()+";\n");
+      }
+      arquivo=new File("clientes.dat");
+      escrever.close();
+      escrever=new FileWriter(arquivo,false);
+      // dep1:dep2:dep3:;cpf;nome;diaNasc;mesNasc;anoNasc;rua;numero;bairro;cidade;renda
+      for(int i=0;i<clientes.size();i++){
+        Cliente cliente=clientes.get(i);
+        for(int j=0;j<cliente.getDependentes().size();j++)
+          escrever.write(cliente.getDependentes().get(j)+":");
+        escrever.write(";"+cliente.getCpf()+";"+cliente.getNome()+";"+cliente.getDataNasc().getDia()+";"+
+        cliente.getDataNasc().getMes()+";"+cliente.getDataNasc().getAno()+";"+cliente.getEndereco().getRua()
+        +";"+cliente.getEndereco().getNumero()+";"+cliente.getEndereco().getBairro()+";"+cliente.getEndereco().getCidade()
+        +";"+cliente.getRenda()+";\n");
+      }
+      arquivo=new File("carros.dat");
+      escrever.close();
+      escrever=new FileWriter(arquivo,false);
+      // potencia;cilindros;ocupantes;tipo;altura;largura;comprimento;chassi;marca;modelo;ano;km;combustivel;peso;status;
+      for(int i=0;i<carros.size();i++){
+        Carro carro=carros.get(i);
+        escrever.write(carro.getPotencia()+";"+carro.getNumeroCilindros()+";"+carro.getNumeroOcupantes()+";"+carro.getTipo()+";"+carro.getAltura()
+        +";"+carro.getLargura()+";"+carro.getComprimento()+";"+carro.getNumeroChassi()+";"+carro.getMarca()+";"+carro.getModelo()+";"+carro.getAno()+";"+carro.getKm()+";"+carro.getTipoCombustivel()
+        +";"+carro.getPeso()+";"+carro.getStatus()+";\n");
+      }
+      arquivo=new File("motocicletas.dat");
+      escrever.close();
+      escrever=new FileWriter(arquivo,false);
+      // cilindradas;tipo;chassi;marca;modelo;ano;km;combustive;peso;status;
+      for(int i=0;i<motocicletas.size();i++){
+        Motocicleta moto=motocicletas.get(i);
+        escrever.write(moto.getCilindradas()+";"+moto.getTipo()+";"+moto.getNumeroChassi()+";"+moto.getMarca()
+        +";"+moto.getModelo()+";"+moto.getAno()+";"+moto.getKm()+";"+moto.getTipoCombustivel()+";"+moto.getPeso()
+        +";"+moto.getStatus()+";\n");
+      }
+      arquivo=new File("avista.dat");
+      escrever.close();
+      escrever=new FileWriter(arquivo,false);
+      // id;loginVendedor;cpfCliente;chassi;valor;dia;mes;ano;hora;min;
+      for(int i=0;i<vendas.size();i++){
+        Venda venda=vendas.get(i);
+        if(venda instanceof AVista){
+          escrever.write(venda.getId()+";"+venda.getVendedor().getLogin()+";"+venda.getCliente().getCpf()+";"+
+          venda.getVeiculo().getNumeroChassi()+";"+venda.getValor()+";"+venda.getData().getDia()+";"+
+          venda.getData().getMes()+";"+venda.getData().getAno()+";"+venda.getHora().getHora()+";"+
+          venda.getHora().getMinuto()+";\n");
+        }
+      }
+      escrever.close();
+      arquivo=new File("aprazo.dat");
+      escrever.close();
+      escrever=new FileWriter(arquivo,false);
+      // id;loginVendedor;cpfCliente;chassi;valor;dia;mes;ano;hora;min;
+      for(int i=0;i<vendas.size();i++){
+        Venda venda=vendas.get(i);
+        if(venda instanceof APrazo){
+          escrever.write(venda.getId()+";"+venda.getVendedor().getLogin()+";"+venda.getCliente().getCpf()+";"+
+          venda.getVeiculo().getNumeroChassi()+";"+venda.getValor()+";"+venda.getData().getDia()+";"+
+          venda.getData().getMes()+";"+venda.getData().getAno()+";"+venda.getHora().getHora()+";"+
+          venda.getHora().getMinuto()+";"+venda.getQuantPrazos()+";\n");
+        }
       }
       escrever.close();
     }
