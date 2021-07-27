@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.*;
-public class Principal{
+public class Principal extends Arquivo{
   public static void main(String[] args) {
     List<Funcionarios> gerentes=new ArrayList<>();
     List<Funcionarios> vendedores=new ArrayList<>();
@@ -12,34 +12,9 @@ public class Principal{
     int logado=-1;//guarda o indice do funcionario logado.
     Scanner scan=new Scanner(System.in);
     int opLogin;
-    String[] gerentesArq,vendedoresArq,clientesArq,carrosArq,motocicletasArq,aVistaArq,aPrazoArq;
-    //experiencia;login;senha;rg;nome;diaNasc;anoNas;mesNas;diaAdm;mesAdm;anoAdm;salario;
-    Arquivo arq=new Arquivo();
-    gerentesArq=arq.ler("gerentes.dat");
-    //se não existirem gerentes no arquivo, cadastra um novo
-    //ja que só gerentes podem criar outros usuarios.
-    if(gerentesArq[0].equals("")){
-      Gerente novo=new Gerente();
-      novo.cadastra(gerentes);
-    }
-    else{
-      //a cada 12 informações, se tem um novo gerente no arquivo.
-      for(int i=0;i<gerentesArq.length;i+=12){
-        gerentes.add(new Gerente(
-        Integer.parseInt(gerentesArq[i]),//AnosExperiencia
-        gerentesArq[i+1],//login
-        gerentesArq[i+2],//senha
-        gerentesArq[i+3],//rg
-        gerentesArq[i+4],//nome
-        new Data(Integer.parseInt(gerentesArq[i+5]),//diaNascimento
-        Integer.parseInt(gerentesArq[i+6]),//mesNascimento
-        Integer.parseInt(gerentesArq[i+7])),//anoNascimento
-        new Data(Integer.parseInt(gerentesArq[i+8]),//diaAdmissao
-        Integer.parseInt(gerentesArq[i+9]),//mesAdmissao
-        Integer.parseInt(gerentesArq[i+10])),//anoAdmissao
-        Double.parseDouble(gerentesArq[i+11])));//salario
-      }
-    }
+    //le os arquivos
+    ler(gerentes,vendedores,clientes,carros,motocicletas,vendas);
+    
     //logando gerente ou vendedor.
     do{
       //repetir até logar.
@@ -115,7 +90,7 @@ public class Principal{
                 for(int i=0;i<clientes.size();i++) {
                   System.out.println("Cliente["+i+"]: "+ clientes.get(i).getNome());
                 }
-                System.out.println("Digite o indice do cliente que deseja alterar: ");
+                System.out.printf("Digite o indice do cliente que deseja alterar: ");
                 clientes.get(scan.nextInt()).altera();
               }
             }else if(op == 3) { //excluir cliente
@@ -125,7 +100,7 @@ public class Principal{
                 for(int i=0;i<clientes.size();i++) {
                   System.out.println("Cliente["+i+"]: "+ clientes.get(i).getNome());
                 }
-                System.out.println("Digite o indice do cliente que deseja deletar: ");
+                System.out.printf("Digite o indice do cliente que deseja deletar: ");
                 clientes.remove(scan.nextInt());
               }
             }
@@ -158,7 +133,7 @@ public class Principal{
                 for(int i=0;i<carros.size();i++) {                
                   System.out.println("Carro["+i+"]: " +carros.get(i).getMarca() + " " + carros.get(i).getModelo());
                 }
-                System.out.println("Digite o indice do carro que deseja alterar: ");
+                System.out.printf("Digite o indice do carro que deseja alterar: ");
                 carros.get(scan.nextInt()).altera();
               }
             }
@@ -169,7 +144,7 @@ public class Principal{
                 for(int i=0;i<motocicletas.size();i++) {                
                   System.out.println("Moto["+i+"]: " +motocicletas.get(i).getMarca() + " " + motocicletas.get(i).getModelo());
                 }
-                System.out.println("Digite o indice da moto que deseja alterar: ");
+                System.out.printf("Digite o indice da moto que deseja alterar: ");
                 motocicletas.get(scan.nextInt()).altera();
               }
             }
@@ -180,7 +155,7 @@ public class Principal{
                 for(int i=0;i<carros.size();i++) {                
                   System.out.println("Carro["+i+"]: " +carros.get(i).getMarca() + " " + carros.get(i).getModelo());
                 }
-                System.out.println("Digite o indice do carro que deseja excluir: ");
+                System.out.printf("Digite o indice do carro que deseja excluir: ");
                 carros.remove(scan.nextInt());
               }
             }
@@ -191,7 +166,7 @@ public class Principal{
                 for(int i=0;i<motocicletas.size();i++) {                
                   System.out.println("Moto["+i+"]: " +motocicletas.get(i).getMarca() + " " + motocicletas.get(i).getModelo());
                 }
-                System.out.println("Digite o indice da moto que deseja excluir: ");
+                System.out.printf("Digite o indice da moto que deseja excluir: ");
                 motocicletas.remove(scan.nextInt());
               }
             }
@@ -220,7 +195,7 @@ public class Principal{
               for(int i=0;i<gerentes.size();i++) {
                 System.out.println("Gerente["+i+"]: " + gerentes.get(i).getNome());
               }
-              System.out.println("Digite o indice do gerente que deseja alterar: ");
+              System.out.printf("Digite o indice do gerente que deseja alterar: ");
               gerentes.get(scan.nextInt()).altera();
             }
             else if(op == 4) {
@@ -230,7 +205,7 @@ public class Principal{
                 for(int i=0;i<vendedores.size();i++) {
                   System.out.println("Vendedor["+i+"]: " + vendedores.get(i).getNome());
                 }
-                System.out.println("Digite o indice do vendedor que deseja alterar: ");
+                System.out.printf("Digite o indice do vendedor que deseja alterar: ");
                 vendedores.get(scan.nextInt()).altera();
               }
             }
@@ -241,7 +216,7 @@ public class Principal{
                 for(int i=0;i<gerentes.size();i++) {
                   System.out.println("Gerente["+i+"]: " + gerentes.get(i).getNome());
                 }
-                System.out.println("Digite o indice do gerente que deseja excluir: ");
+                System.out.printf("Digite o indice do gerente que deseja excluir: ");
                 gerentes.remove(scan.nextInt());
               }
             }
@@ -252,7 +227,7 @@ public class Principal{
                 for(int i=0;i<vendedores.size();i++) {
                   System.out.println("Vendedor["+i+"]: " + vendedores.get(i).getNome());
                 }
-                System.out.println("Digite o indice do vendedor que deseja excluir: ");
+                System.out.printf("Digite o indice do vendedor que deseja excluir: ");
                 vendedores.remove(scan.nextInt());
               }
             }
@@ -266,14 +241,15 @@ public class Principal{
                 System.out.printf("Digite o indice do vendedor que deseja ver desempenho: ");
                 int indiceVendedor=scan.nextInt();
                 for(int i=0;i<vendas.size() && vendas.size()!=0;i++) {
-                  if(vendas.get(i).getVendedor()==vendedores.get(indiceVendedor))
+                  if(vendas.get(i).getVendedor()==vendedores.get(indiceVendedor)){
                     vendas.get(i).mostraVenda();
+                    System.out.println("/-----------------/");
+                  }
                 }
               }
             }
           }
         }while(opcao != 0);
-       
       }
       else if(opLogin==2){
         //opções vendedor
@@ -325,13 +301,14 @@ public class Principal{
                   System.out.println("/--------------------/");
                 }
               }
-              else
+              else{
                 if(motocicletas.size()==0)
                   System.out.println("Nao existem motocicletas cadastradas.");
                 for(int i=0;i<motocicletas.size() && motocicletas.size()!=0;i++){
                   motocicletas.get(i).printMotocicleta();
                   System.out.println("/--------------------/");
                 }
+              }
             }
             else if(opcao == 3){
               if(clientes.size()==0)
@@ -345,7 +322,6 @@ public class Principal{
               if(vendas.size()==0)
                 System.out.println("Nao existem vendas.");
               for(int i=0;i<vendas.size() && vendas.size()!=0;i++) {
-                System.out.println("Venda["+i+"]");
                 vendas.get(i).mostraVenda();
                 System.out.println("/--------------------/");
               }

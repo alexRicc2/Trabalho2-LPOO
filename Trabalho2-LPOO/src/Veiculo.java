@@ -31,13 +31,13 @@ public class Veiculo {
         modelo, ano, km);
     switch (tipoCombustivel) {
       case 1:
-        System.out.printf("Gasolina\n");
+        System.out.printf("Gasolina\n");break;
       case 2:
-        System.out.printf("Alcool\n");
+        System.out.printf("Alcool\n");break;
       default:
-        System.out.println();
+        System.out.println();break;
     }
-    System.out.printf("Peso: %f\nStatus: ", peso);
+    System.out.printf("Peso: %.2f\nStatus: ", peso);
     if (status)
       System.out.printf("Vendido.\n");
     else

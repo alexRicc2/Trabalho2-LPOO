@@ -65,7 +65,7 @@ public class Data {
   }
 
   public void printData() {
-    System.out.println("Data: " + this.getDia() + "/" + this.getMes() + "/" + this.getAno()+"\n");
+    System.out.println(this.getDia() + "/" + this.getMes() + "/" + this.getAno());
   }
   public void cadastra() {
     Scanner scan = new Scanner(System.in);

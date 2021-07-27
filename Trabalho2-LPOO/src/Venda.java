@@ -6,8 +6,7 @@ public class Venda {
   private Cliente cliente;
   private Veiculo veiculo;
   private double valor;
-  private double valorFinal;
-private Data data;
+  private Data data;
   private Hora hora;
   
   public Venda() {
@@ -24,13 +23,6 @@ private Data data;
     this.hora = hora;
   }
 
-  public double getValorFinal() {
-    return valorFinal;
-  }
-  
-  public void setValorFinal(double valorFinal) {
-    this.valorFinal = valorFinal;
-  }
   public int getId() {
     return this.id;
   }

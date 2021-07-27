@@ -22,7 +22,7 @@ public class Cliente {
   }
   
   public void printCliente(){
-    System.out.printf("Nome: %s\nCPF: %s\n Data de Nascimento: ",nome,cpf);
+    System.out.printf("Nome: %s\nCPF: %s\nData de Nascimento: ",nome,cpf);
     dataNasc.printData();
     System.out.printf("Endereco: rua %s %d, %s\n",endereco.getRua(),endereco.getNumero(),endereco.getBairro());
     System.out.printf("Renda: %.2f\n",renda);
@@ -30,6 +30,7 @@ public class Cliente {
     for(int i=0;i<dependentes.size();i++){
       System.out.printf("%s -- ",dependentes.get(i));
     }
+    System.out.println();
   }
 
   public String getCpf() {
@@ -93,12 +94,16 @@ public class Cliente {
     System.out.printf("Quantidade de dependentes: ");
     int quant = scan.nextInt();
     List<String> depen = new ArrayList<>();
-    scan.nextLine();
-    for(int i=0;i<quant;i++) {
-      System.out.printf("Nome do Dependente ["+i+"]: ");
-      depen.add(scan.nextLine());
+    if(quant==0)
+      depen.add("semDependentes");
+    else{
+      scan.nextLine();
+      for(int i=0;i<quant;i++) {
+        System.out.printf("Nome do Dependente ["+i+"]: ");
+        depen.add(scan.nextLine());
+      }
+      this.setDependentes(depen);
     }
-    this.setDependentes(depen);
     System.out.println("Cadastro concluido!!");
   }
   public void altera() {

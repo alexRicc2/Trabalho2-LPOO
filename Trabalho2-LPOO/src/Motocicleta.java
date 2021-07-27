@@ -16,10 +16,10 @@ public class Motocicleta extends Veiculo {
   public void printMotocicleta(){
     System.out.printf("Cilindradas: %d\nTipo: ",cilindradas);
     switch(tipo){
-      case 1:System.out.printf("Trail\n");
-      case 2:System.out.printf("Street\n");
-      case 3:System.out.printf("Esportiva\n");
-      case 4:System.out.printf("Custom\n");
+      case 1:System.out.printf("Trail\n");break;
+      case 2:System.out.printf("Street\n");break;
+      case 3:System.out.printf("Esportiva\n");break;
+      case 4:System.out.printf("Custom\n");break;
     }
     printaVeiculo();
   }

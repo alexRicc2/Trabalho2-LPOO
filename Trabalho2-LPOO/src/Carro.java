@@ -32,16 +32,21 @@ public class Carro extends Veiculo {
     switch (tipo) {
       case 1:
         System.out.printf("Utilitario\n");
+        break;
       case 2:
         System.out.printf("Pickup\n");
+        break;
       case 3:
         System.out.printf("Sedan\n");
+        break;
       case 4:
         System.out.printf("Hatch\n");
+        break;
       case 5:
         System.out.printf("Esportivo\n");
+        break;
     }
-    System.out.printf("Dimensoes: %dx%dx%d\n", comprimento, largura, altura);
+    System.out.printf("Dimensoes: %.2fx%.2fx%.2f\n", comprimento, largura, altura);
     printaVeiculo();
   }
 
