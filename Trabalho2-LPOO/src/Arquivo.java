@@ -161,7 +161,7 @@ public class Arquivo{
         Integer.parseInt(motocicletasArq[i+6]),//km
         Integer.parseInt(motocicletasArq[i+7]),//combustivel
         Double.parseDouble(motocicletasArq[i+8]),//peso
-        Boolean.parseBoolean(carrosArq[i+9])//status
+        Boolean.parseBoolean(motocicletasArq[i+9])//status
         ));
       }
     }

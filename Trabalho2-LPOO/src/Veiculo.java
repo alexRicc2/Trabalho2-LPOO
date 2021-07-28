@@ -99,11 +99,23 @@ public abstract class Veiculo {
   }
 
   public void setKm(int km) {
-    this.km = km;
+    Scanner scan=new Scanner(System.in);
+    if(km<0){
+      System.out.printf("Valor invalido. Tente novamente: ");
+      setKm(scan.nextInt());
+    }
+    else
+      this.km = km;
   }
 
   public void setTipoCombustivel(int tipoCombustivel) {
-    this.tipoCombustivel = tipoCombustivel;
+    Scanner scan=new Scanner(System.in);
+    if(tipoCombustivel!=1 && tipoCombustivel!=2){
+      System.out.printf("Valor invalido. Tente novamente: ");
+      setTipoCombustivel(scan.nextInt());
+    }
+    else
+      this.tipoCombustivel = tipoCombustivel;
   }
 
   public void setPeso(double peso) {

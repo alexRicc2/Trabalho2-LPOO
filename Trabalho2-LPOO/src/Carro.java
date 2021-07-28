@@ -79,19 +79,43 @@ public class Carro extends Veiculo {
   }
 
   public void setPotencia(int potencia) {
-    this.potencia = potencia;
+    Scanner scan=new Scanner(System.in);
+    if(potencia<0){
+      System.out.printf("Valor invalido. Tente novamente: ");
+      setPotencia(scan.nextInt());
+    }
+    else
+      this.potencia = potencia;
   }
 
   public void setNumeroCilindros(int numeroCilindros) {
-    this.numeroCilindros = numeroCilindros;
+    Scanner scan=new Scanner(System.in);
+    if(numeroCilindros<0){
+      System.out.printf("Valor invalido. Tente novamente: ");
+      setNumeroCilindros(scan.nextInt());
+    }
+    else
+      this.numeroCilindros = numeroCilindros;
   }
 
   public void setNumeroOcupantes(int numeroOcupantes) {
-    this.numeroOcupantes = numeroOcupantes;
+    Scanner scan=new Scanner(System.in);
+    if(numeroOcupantes<0){
+      System.out.println("Valor invalido. Tente novamente: ");
+      setNumeroOcupantes(scan.nextInt());
+    }
+    else
+      this.numeroOcupantes = numeroOcupantes;
   }
 
   public void setTipo(int tipo) {
-    this.tipo = tipo;
+    Scanner scan=new Scanner(System.in);
+    if(tipo<1 || tipo>5){
+      System.out.printf("Valor invalido. Tente novamente: ");
+        setTipo(scan.nextInt());
+    }
+    else
+      this.tipo = tipo;
   }
 
   public void setAltura(double altura) {

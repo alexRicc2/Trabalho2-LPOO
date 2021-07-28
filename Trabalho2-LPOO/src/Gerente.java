@@ -17,7 +17,13 @@ public class Gerente extends Funcionarios{
   }
 
   public void setAnosExperiencia(int anosExperiencia) {
-    this.anosExperiencia = anosExperiencia;
+    Scanner scan=new Scanner(System.in);
+    if(anosExperiencia<1950 || anosExperiencia>2050){
+      System.out.println("Ano invalido. Tente novamente: ");
+      setAnosExperiencia(scan.nextInt());
+    }
+    else
+      this.anosExperiencia = anosExperiencia;
   }
   
   public void cadastra(List<Funcionarios> gerentes){

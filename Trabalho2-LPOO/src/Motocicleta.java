@@ -9,8 +9,8 @@ public class Motocicleta extends Veiculo {
   public Motocicleta(int cilindradas, int tipo, int numeroChassi, String marca, String modelo, int ano, int km,
       int tipoCombustivel, double peso, boolean status) {
     super(numeroChassi, marca, modelo, ano, km, tipoCombustivel, peso, status);
-    this.cilindradas = cilindradas;
-    this.tipo = tipo;
+    this.cilindradas=cilindradas;
+    this.tipo=tipo;
   }
   
   public void printMotocicleta(){
@@ -37,7 +37,13 @@ public class Motocicleta extends Veiculo {
   }
 
   public void setTipo(int tipo) {
-    this.tipo = tipo;
+    Scanner scan=new Scanner(System.in);
+    if(tipo<1 || tipo>4){
+      System.out.printf("Valor invalido. Tente novamente: ");
+        setTipo(scan.nextInt());
+    }
+    else
+      this.tipo = tipo;
   }
   public void cadastra(int chassi) {
     Scanner scan = new Scanner(System.in);
