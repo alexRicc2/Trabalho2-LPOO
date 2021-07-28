@@ -95,15 +95,33 @@ public class Carro extends Veiculo {
   }
 
   public void setAltura(double altura) {
-    this.altura = altura;
+    Scanner scan=new Scanner(System.in);
+    if(altura<0){
+      System.out.printf("Valor invalido. Tente novamente: ");
+      setAltura(scan.nextDouble());
+    }
+    else
+      this.altura = altura;
   }
 
   public void setLargura(double largura) {
-    this.largura = largura;
+    Scanner scan=new Scanner(System.in);
+    if(largura<0){
+      System.out.printf("Valor invalido. Tente novamente: ");
+      setLargura(scan.nextDouble());
+    }
+    else
+      this.largura = largura;
   }
 
   public void setComprimento(double comprimento) {
-    this.comprimento = comprimento;
+    Scanner scan=new Scanner(System.in);
+    if(comprimento<0){
+      System.out.printf("Valor invalido. Tente novamente: ");
+      setComprimento(scan.nextDouble());
+    }
+    else
+      this.comprimento = comprimento;
   }
   public void cadastra(int chassi) {
     Scanner scan = new Scanner(System.in);
