@@ -70,7 +70,13 @@ public abstract class Venda {
   }
 
   public void setValor(double valor) {
-    this.valor = valor;
+    Scanner scan=new Scanner(System.in);
+    if(valor<0){
+      System.out.printf("Valor invalido. Tente novamente: ");
+      setValor(scan.nextDouble());
+    }
+    else
+      this.valor = valor;
   }
 
   public void setData(Data data) {
