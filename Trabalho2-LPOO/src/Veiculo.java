@@ -135,7 +135,7 @@ public abstract class Veiculo {
     int op;
     
     do {      
-      System.out.println("--Sistema de alteração de veiculo--");
+      System.out.println("--Sistema de alteracao de veiculo--");
       System.out.println("1- Alterar numero do chassi");
       System.out.println("2- alterar modelo do veiculo");
       System.out.println("3- alterar marca do veiculo");

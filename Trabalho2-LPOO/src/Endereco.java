@@ -48,7 +48,7 @@ public class Endereco {
   }
   public void cadastra() {
     Scanner scan = new Scanner(System.in);
-    System.out.println("---Cadastrando endereço---");
+    System.out.println("---Cadastrando endereco---");
     System.out.printf("Nome da Rua: ");
     this.setRua(scan.nextLine());
     System.out.printf("Numero da casa: ");
@@ -63,7 +63,7 @@ public class Endereco {
     Scanner scan = new Scanner(System.in);
     int op;
     do {
-      System.out.println("--Sistema de alterações de endereço--");
+      System.out.println("--Sistema de alteracoes de endereco--");
       System.out.println("1- Alterar nome da Rua");
       System.out.println("2- Alterar numero da casa");
       System.out.println("3- Alterar nome do bairro");

@@ -59,14 +59,14 @@ public class Principal extends Arquivo{
       }
       //se quem logou foi gerente
       if(opLogin==1){
-        // opções gerente
+        // opcoes gerente
         int opcao,op;
         do {
           
           System.out.println("---Menu Gerente---");
-          System.out.println("1- Opções Clientes");
-          System.out.println("2- Opções Veiculos");
-          System.out.println("3- Opções Funcionarios");
+          System.out.println("1- Opcoes Clientes");
+          System.out.println("2- Opcoes Veiculos");
+          System.out.println("3- Opcoes Funcionarios");
           System.out.println("0- Deslogar como gerente");
           System.out.printf("Sua escolha: ");
           opcao = scan.nextInt();
@@ -74,7 +74,7 @@ public class Principal extends Arquivo{
           if(opcao == 1) { //opcoes do gerente sobre clientes
             System.out.println("---Aba Clientes---");
             System.out.println("1- Cadastrar novo cliente");
-            System.out.println("2- Alterar informações de um cliente");
+            System.out.println("2- Alterar informacoes de um cliente");
             System.out.println("3- excluir um cliente");
             System.out.printf("Sua escolha: ");
             op = scan.nextInt();
@@ -228,7 +228,7 @@ public class Principal extends Arquivo{
             System.out.println("4- Alterar vendendor");
             System.out.println("5- excluir gerente");
             System.out.println("6- excluir vendedor");
-            System.out.println("7- informações de um vendedor");
+            System.out.println("7- informacoes de um vendedor");
             System.out.printf("sua escolha: ");
             op = scan.nextInt();
             if(op == 1) {
@@ -340,7 +340,7 @@ public class Principal extends Arquivo{
         }while(opcao != 0);
       }
       else if(opLogin==2){
-        //opções vendedor
+        //opcoes vendedor
         int opcao,op;
         do {
           

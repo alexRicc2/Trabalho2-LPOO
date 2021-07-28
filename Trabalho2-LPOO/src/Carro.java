@@ -1,5 +1,5 @@
 // potência, número de cilindros, número de ocupantes, tipo (utilitário,
-// pickup, sedan, hatch, esportivo), dimensões (altura, largura e comprimento).
+// pickup, sedan, hatch, esportivo), dimensoes (altura, largura e comprimento).
 import java.util.*;
 public class Carro extends Veiculo {
   private int potencia;

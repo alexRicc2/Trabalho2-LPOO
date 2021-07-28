@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 public class Arquivo{
-  //função auxiliar.
+  //funcao auxiliar.
   public static String[] lerAux(String arq){
     String[] dados2;
     String dados="";
@@ -22,7 +22,7 @@ public class Arquivo{
     return dados2;
   }
   
-  //pega todas as informações dos arquivos.
+  //pega todas as informacoes dos arquivos.
   public void ler(List<Funcionarios> gerentes,List<Funcionarios> vendedores,List<Cliente> clientes,List<Carro> carros,List<Motocicleta> motocicletas,List<Venda> vendas){
     String[] gerentesArq,vendedoresArq,clientesArq,carrosArq,motocicletasArq,aVistaArq,aPrazoArq;
     gerentesArq=lerAux("gerentes.dat");
@@ -33,14 +33,14 @@ public class Arquivo{
     aVistaArq=lerAux("avista.dat");
     aPrazoArq=lerAux("aprazo.dat");
     
-    //se não existirem gerentes no arquivo, cadastra um novo
+    //se nao existirem gerentes no arquivo, cadastra um novo
     //ja que só gerentes podem criar outros usuarios.
     if(gerentesArq[0].equals("")){
       Gerente novo=new Gerente();
       novo.cadastra(gerentes);
     }
     else{
-      //a cada 12 informações, se tem um novo gerente no arquivo.
+      //a cada 12 informacoes, se tem um novo gerente no arquivo.
       //experiencia;login;senha;rg;nome;diaNasc;anoNas;mesNas;diaAdm;mesAdm;anoAdm;salario;
       for(int i=0;i<gerentesArq.length;i+=12){
         gerentes.add(new Gerente(

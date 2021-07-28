@@ -54,7 +54,7 @@ public class Hora {
   
   public void cadastra() {
   Scanner scan = new Scanner(System.in);
-  System.out.printf("Digite a hora e minutos separado por espaços: ");
+  System.out.printf("Digite a hora e minutos separado por espacos: ");
   this.setHora(scan.nextInt()); this.setMinuto(scan.nextInt());
   }
 }

@@ -110,7 +110,7 @@ public class Cliente {
     Scanner scan = new Scanner(System.in);
     int op;
     do {
-      System.out.println("--Sistema de alterações de cliente--");
+      System.out.println("--Sistema de alteracoes de cliente--");
       System.out.println("1- Alterar nome do cliente");
       System.out.println("2- Alterar cpf do cliente");
       System.out.println("3- Alterar renda do cliente");
