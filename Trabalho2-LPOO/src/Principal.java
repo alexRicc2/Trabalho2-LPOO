@@ -88,10 +88,12 @@ public class Principal extends Arquivo{
               if(clientes.size()==0)
                 System.out.println("Nao existem clientes cadastrados.");
               else{
+                //printa clientes
                 for(int i=0;i<clientes.size();i++) {
                   System.out.println("Cliente["+i+"]: "+ clientes.get(i).getNome());
                 }
                 int indice;
+                //verifica input
                 while(true){
                   System.out.printf("Digite o indice do cliente que deseja alterar: ");
                   indice=scan.nextInt();
@@ -100,16 +102,19 @@ public class Principal extends Arquivo{
                   else
                     break;
                 }
+                //altera cliente
                 clientes.get(indice).altera();
               }
             }else if(op == 3) { //excluir cliente
               if(clientes.size()==0)
                 System.out.println("Nao existem clientes cadastrados.");
               else{
+                //printa clientes
                 for(int i=0;i<clientes.size();i++) {
                   System.out.println("Cliente["+i+"]: "+ clientes.get(i).getNome());
                 }
                 int indice;
+                //verifica input
                 while(true){
                   System.out.printf("Digite o indice do cliente que deseja remover: ");
                   indice=scan.nextInt();
@@ -118,6 +123,7 @@ public class Principal extends Arquivo{
                   else
                     break;
                 }
+                //remove cliente
                 clientes.remove(indice);
               }
             }
@@ -133,11 +139,13 @@ public class Principal extends Arquivo{
             System.out.println("6- Excluir uma moto");
             System.out.println("sua escolha: ");
             op = scan.nextInt();
+            //cadastrar carro ou moto
             if(op == 1 || op == 2) {
               int chassi;
               boolean achou;
               while(true){
                 achou=false;
+                //verifica se o numero é repetido nos carros
                 System.out.printf("Digite o numero do chassi: ");
                 chassi=scan.nextInt();
                 for(int i=0;i<carros.size();i++){
@@ -147,6 +155,7 @@ public class Principal extends Arquivo{
                     break;
                   }
                 }
+                //se não for nos carros verifica nas motos
                 if(!achou){
                   for(int i=0;i<motocicletas.size();i++){
                     if(motocicletas.get(i).getNumeroChassi()==chassi){
@@ -159,25 +168,30 @@ public class Principal extends Arquivo{
                 if(!achou)
                   break;
               }
+              //cadastra carro
               if(op==1){
                 Carro novo = new Carro();
                 novo.cadastra(chassi);
                 carros.add(novo);
               }
+              //cadastra moto
               else{
                 Motocicleta novo = new Motocicleta();
                 novo.cadastra(chassi);
                 motocicletas.add(novo);
               }
             }
+            //altera carro
             else if(op == 3) {
               if(carros.size()==0)
                 System.out.println("Nao existem carros cadastrados.");
               else{
+                //printa carros
                 for(int i=0;i<carros.size();i++) {                
                   System.out.println("Carro["+i+"]: " +carros.get(i).getMarca() + " " + carros.get(i).getModelo());
                 }
                 int indice;
+                //verifica input
                 while(true){
                   System.out.printf("Digite o indice do carro que deseja alterar: ");
                   indice=scan.nextInt();
@@ -186,17 +200,21 @@ public class Principal extends Arquivo{
                   else
                     break;
                 }
+                //altera carro
                 carros.get(indice).altera();
               }
             }
+            //altera moto
             else if(op == 4) {
               if(carros.size()==0)
                 System.out.println("Nao existem motos cadastradas.");
               else{
+                //printa motos
                 for(int i=0;i<motocicletas.size();i++) {                
                   System.out.println("Moto["+i+"]: " +motocicletas.get(i).getMarca() + " " + motocicletas.get(i).getModelo());
                 }
                 int indice;
+                //verifica input
                 while(true){
                   System.out.printf("Digite o indice da moto que deseja alterar: ");
                   indice=scan.nextInt();
@@ -208,14 +226,17 @@ public class Principal extends Arquivo{
                 motocicletas.get(indice).altera();
               }
             }
+            //exclui carro
             else if(op == 5) {
               if(carros.size()==0)
                 System.out.println("Nao existem carros cadastrados.");
               else{
+                //printa carros
                 for(int i=0;i<carros.size();i++) {                
                   System.out.println("Carro["+i+"]: " +carros.get(i).getMarca() + " " + carros.get(i).getModelo());
                 }
                 int indice;
+                //verifica input
                 while(true){
                   System.out.printf("Digite o indice do carro que deseja excluir: ");
                   indice=scan.nextInt();
@@ -224,17 +245,21 @@ public class Principal extends Arquivo{
                   else
                     break;
                 }
+                //remove carro
                 carros.remove(indice);
               }
             }
+            //remove motos
             else if(op == 6) {
               if(carros.size()==0)
                 System.out.println("Nao existem motos cadastradas.");
               else{
+                //printa motos
                 for(int i=0;i<motocicletas.size();i++) {                
                   System.out.println("Moto["+i+"]: " +motocicletas.get(i).getMarca() + " " + motocicletas.get(i).getModelo());
                 }
                 int indice;
+                //verifica input
                 while(true){
                   System.out.printf("Digite o indice da motocicleta que deseja excluir: ");
                   indice=scan.nextInt();
@@ -258,15 +283,18 @@ public class Principal extends Arquivo{
             System.out.println("7- informacoes de um vendedor");
             System.out.printf("sua escolha: ");
             op = scan.nextInt();
+            //novo gerente
             if(op == 1) {
             Gerente novo = new Gerente();
             novo.cadastra(gerentes);
             }
+            //novo vendedor
             else if(op == 2) {
             Vendedor novo = new Vendedor();
             novo.cadastra(vendedores,gerentes);
             vendedores.add(novo);
             }
+            //altera gerente
             else if(op == 3) {
               for(int i=0;i<gerentes.size();i++) {
                 System.out.println("Gerente["+i+"]: " + gerentes.get(i).getNome());
@@ -282,6 +310,7 @@ public class Principal extends Arquivo{
               }
               gerentes.get(indice).altera();
             }
+            //altera vendedor
             else if(op == 4) {
               if(vendedores.size()==0)
                 System.out.println("Nao existem vendedores cadastrados.");
@@ -301,6 +330,7 @@ public class Principal extends Arquivo{
                 vendedores.get(scan.nextInt()).altera();
               }
             }
+            //remove gerente
             else if(op == 5) {
               if(gerentes.size()==1)
                 System.out.println("Deve haver pelomenos um gerente.");
@@ -320,6 +350,7 @@ public class Principal extends Arquivo{
                 gerentes.remove(indice);
               }
             }
+            //remove vendedor
             else if(op == 6) {
               if(vendedores.size()==0)
                 System.out.println("Nao existem vendedores cadastrados.");
@@ -339,6 +370,7 @@ public class Principal extends Arquivo{
                 vendedores.remove(indice);
               }
             }
+            //desempenho vendedor
             else if(op == 7) {
               if(vendedores.size()==0)
                 System.out.println("Nao existem vendedores cadastrados.");
@@ -355,6 +387,7 @@ public class Principal extends Arquivo{
                   else
                     break;
                 }
+                //printa as vendas feitas pelo vendedor
                 for(int i=0;i<vendas.size() && vendas.size()!=0;i++) {
                   if(vendas.get(i).getVendedor()==vendedores.get(indiceVendedor)){
                     vendas.get(i).mostraVenda();
@@ -370,7 +403,6 @@ public class Principal extends Arquivo{
         //opcoes vendedor
         int opcao,op;
         do {
-          
           System.out.println("--Menu vendedor--");
             System.out.println("1- Realizar uma venda");
             System.out.println("2- Mostrar veiculos");
@@ -379,7 +411,7 @@ public class Principal extends Arquivo{
             System.out.println("0- Deslogar como vendedor");
             System.out.printf("sua escolha: ");
             opcao = scan.nextInt();
-            
+            //realiza venda
             if(opcao == 1) {
               if(clientes.size()==0)
                 System.out.println("Nao existem clientes cadastrados.");
@@ -390,19 +422,23 @@ public class Principal extends Arquivo{
               System.out.println("2- Realizar venda a prazo");
               System.out.printf("sua escolha: ");
               op = scan.nextInt();
-              
+              //a vista
               if(op == 1) {
                 AVista novo = new AVista();
+                //verifica se venda foi bem sucedida
                 if(novo.cadastra(vendas, vendedores.get(logado), clientes, motocicletas, carros))
                   vendas.add(novo);
               }
+              //a prazo
               else {
                 APrazo novo = new APrazo();
+                //verifica se venda foi bem sucedida
                 if(novo.cadastra(vendas, vendedores.get(logado), clientes, motocicletas, carros))
                   vendas.add(novo);
               }
             }
             }
+            //mostra veiculos
             else if(opcao==2){
               System.out.println("1- Carros");
               System.out.println("2- motocicletas");
@@ -425,6 +461,7 @@ public class Principal extends Arquivo{
                 }
               }
             }
+            // mostra clientes
             else if(opcao == 3){
               if(clientes.size()==0)
                 System.out.println("Nao existem clientes cadastrados.");
@@ -433,6 +470,7 @@ public class Principal extends Arquivo{
                 System.out.println("/--------------------/");
               }
             }
+            //mostra vendas
             else if(opcao == 4) {
               if(vendas.size()==0)
                 System.out.println("Nao existem vendas.");

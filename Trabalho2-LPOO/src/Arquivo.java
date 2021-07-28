@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 public class Arquivo{
-  //funcao auxiliar.
+  //funcao auxiliar que pega os dados do arquivo e guarda num vetor de strings.
   public static String[] lerAux(String arq){
     String[] dados2;
     String dados="";
@@ -63,6 +63,7 @@ public class Arquivo{
         ));
       }
     }
+    //VENDEDORES
     //treinamento;loginGerente;login;senha;rg;nome;diaNasc;mesNasc;anoNasc;diaAdm;mesAdm;anoAdm;salario;
     if(vendedoresArq[0]!=""){
       Funcionarios aux=new Gerente();
@@ -95,6 +96,7 @@ public class Arquivo{
       }
     }
     // dep1:dep2:dep3:;cpf;nome;diaNasc;mesNasc;anoNasc;rua;numero;bairro;cidade;renda
+    //CLIENTES
     if(clientesArq[0]!=""){
       for(int i=0;i<clientesArq.length;i+=11){
         //pegando dependentes se tiver
@@ -127,6 +129,7 @@ public class Arquivo{
         ));
       }
     }
+    //CARROS
     if(carrosArq[0]!=""){
       for(int i=0;i<carrosArq.length;i+=15){
         carros.add(new Carro(
@@ -148,7 +151,7 @@ public class Arquivo{
         ));
       }
     }
-    
+    //MOTOCICLETAS
     if(motocicletasArq[0]!=""){
       for(int i=0;i<motocicletasArq.length;i+=10){
         motocicletas.add(new Motocicleta(
@@ -167,6 +170,7 @@ public class Arquivo{
     }
     
     // id;loginVendedor;cpfCliente;chassi;valor;dia;mes;ano;hora;min;
+    //A VISTA
     if(aVistaArq[0]!=""){
       Funcionarios vendedor=new Vendedor();
       Cliente cliente=new Cliente();
@@ -218,6 +222,7 @@ public class Arquivo{
       }
     }
     // int id, Funcionarios vendedor, Cliente cliente, Veiculo veiculo, double valor, Data data, Hora hora, int quantPrazos
+    //A PRAZO
     if(aPrazoArq[0]!=""){
       Funcionarios vendedor=new Vendedor();
       Cliente cliente=new Cliente();
@@ -273,6 +278,7 @@ public class Arquivo{
     }
     
   }
+  //salva informações em arquivos.
   public void escrever(List<Funcionarios> gerentes,List<Funcionarios> vendedores,List<Cliente> clientes,
   List<Carro> carros,List<Motocicleta> motocicletas,List<Venda> vendas){
     // avista.dat
