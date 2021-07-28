@@ -39,9 +39,9 @@ public class Motocicleta extends Veiculo {
   public void setTipo(int tipo) {
     this.tipo = tipo;
   }
-  public void cadastra() {
+  public void cadastra(int chassi) {
     Scanner scan = new Scanner(System.in);
-    super.cadastra();
+    super.cadastra(chassi);
     System.out.printf("Cilindradas: ");
     this.setCilindradas(scan.nextInt());
     System.out.printf("Tipo(1 trail, 2 street, 3 esportiva, 4 custom): ");

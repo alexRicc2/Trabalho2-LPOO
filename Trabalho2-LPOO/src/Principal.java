@@ -133,16 +133,43 @@ public class Principal extends Arquivo{
             System.out.println("6- Excluir uma moto");
             System.out.println("sua escolha: ");
             op = scan.nextInt();
-            if(op == 1) {
-              Carro novo = new Carro();
-              novo.cadastra();
-              carros.add(novo);
-            }
-            else if(op == 2) {
+            if(op == 1 || op == 2) {
+              int chassi;
+              boolean achou;
+              while(true){
+                achou=false;
+                System.out.printf("Digite o numero do chassi: ");
+                chassi=scan.nextInt();
+                for(int i=0;i<carros.size();i++){
+                  if(carros.get(i).getNumeroChassi()==chassi){
+                    System.out.println("Chassi ja existente.");
+                    achou=true;
+                    break;
+                  }
+                }
+                if(!achou){
+                  for(int i=0;i<motocicletas.size();i++){
+                    if(motocicletas.get(i).getNumeroChassi()==chassi){
+                      System.out.println("Chassi ja existente.");
+                      achou=true;
+                      break;
+                    }
+                  }
+                }
+                if(!achou)
+                  break;
+              }
+              if(op==1){
+                Carro novo = new Carro();
+                novo.cadastra(chassi);
+                carros.add(novo);
+              }
+              else{
                 Motocicleta novo = new Motocicleta();
-                novo.cadastra();
+                novo.cadastra(chassi);
                 motocicletas.add(novo);
               }
+            }
             else if(op == 3) {
               if(carros.size()==0)
                 System.out.println("Nao existem carros cadastrados.");

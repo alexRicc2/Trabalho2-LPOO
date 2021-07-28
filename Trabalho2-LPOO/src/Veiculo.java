@@ -114,12 +114,10 @@ public abstract class Veiculo {
     this.status = status;
   }
   
-  public void cadastra() {
+  public void cadastra(int chassi) {
     Scanner scan = new Scanner(System.in);
-    System.out.printf("Numero do chassi: ");
-    this.setNumeroChassi(scan.nextInt());
+    this.setNumeroChassi(chassi);
     System.out.printf("Marca do veiculo: ");
-    scan.nextLine();
     this.setMarca(scan.nextLine());
     System.out.printf("Modelo do veiculo: ");
     this.setModelo(scan.nextLine());

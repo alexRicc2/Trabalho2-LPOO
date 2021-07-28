@@ -105,9 +105,9 @@ public class Carro extends Veiculo {
   public void setComprimento(double comprimento) {
     this.comprimento = comprimento;
   }
-  public void cadastra() {
+  public void cadastra(int chassi) {
     Scanner scan = new Scanner(System.in);
-    super.cadastra();
+    super.cadastra(chassi);
     System.out.printf("Potencia: ");
     this.setPotencia(scan.nextInt());
     System.out.printf("Numero de cilindros: ");
