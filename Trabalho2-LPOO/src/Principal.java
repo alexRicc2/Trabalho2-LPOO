@@ -91,8 +91,16 @@ public class Principal extends Arquivo{
                 for(int i=0;i<clientes.size();i++) {
                   System.out.println("Cliente["+i+"]: "+ clientes.get(i).getNome());
                 }
-                System.out.printf("Digite o indice do cliente que deseja alterar: ");
-                clientes.get(scan.nextInt()).altera();
+                int indice;
+                while(true){
+                  System.out.printf("Digite o indice do cliente que deseja alterar: ");
+                  indice=scan.nextInt();
+                  if(indice<0 || indice>=clientes.size())
+                    System.out.println("Indice invalido.");
+                  else
+                    break;
+                }
+                clientes.get(indice).altera();
               }
             }else if(op == 3) { //excluir cliente
               if(clientes.size()==0)
@@ -101,8 +109,16 @@ public class Principal extends Arquivo{
                 for(int i=0;i<clientes.size();i++) {
                   System.out.println("Cliente["+i+"]: "+ clientes.get(i).getNome());
                 }
-                System.out.printf("Digite o indice do cliente que deseja deletar: ");
-                clientes.remove(scan.nextInt());
+                int indice;
+                while(true){
+                  System.out.printf("Digite o indice do cliente que deseja remover: ");
+                  indice=scan.nextInt();
+                  if(indice<0 || indice>=clientes.size())
+                    System.out.println("Indice invalido.");
+                  else
+                    break;
+                }
+                clientes.remove(indice);
               }
             }
           }
@@ -134,8 +150,16 @@ public class Principal extends Arquivo{
                 for(int i=0;i<carros.size();i++) {                
                   System.out.println("Carro["+i+"]: " +carros.get(i).getMarca() + " " + carros.get(i).getModelo());
                 }
-                System.out.printf("Digite o indice do carro que deseja alterar: ");
-                carros.get(scan.nextInt()).altera();
+                int indice;
+                while(true){
+                  System.out.printf("Digite o indice do carro que deseja alterar: ");
+                  indice=scan.nextInt();
+                  if(indice<0 || indice>=carros.size())
+                    System.out.println("Indice invalido.");
+                  else
+                    break;
+                }
+                carros.get(indice).altera();
               }
             }
             else if(op == 4) {
@@ -145,8 +169,16 @@ public class Principal extends Arquivo{
                 for(int i=0;i<motocicletas.size();i++) {                
                   System.out.println("Moto["+i+"]: " +motocicletas.get(i).getMarca() + " " + motocicletas.get(i).getModelo());
                 }
-                System.out.printf("Digite o indice da moto que deseja alterar: ");
-                motocicletas.get(scan.nextInt()).altera();
+                int indice;
+                while(true){
+                  System.out.printf("Digite o indice da moto que deseja alterar: ");
+                  indice=scan.nextInt();
+                  if(indice<0 || indice>=motocicletas.size())
+                    System.out.println("Indice invalido.");
+                  else
+                    break;
+                }
+                motocicletas.get(indice).altera();
               }
             }
             else if(op == 5) {
@@ -156,8 +188,16 @@ public class Principal extends Arquivo{
                 for(int i=0;i<carros.size();i++) {                
                   System.out.println("Carro["+i+"]: " +carros.get(i).getMarca() + " " + carros.get(i).getModelo());
                 }
-                System.out.printf("Digite o indice do carro que deseja excluir: ");
-                carros.remove(scan.nextInt());
+                int indice;
+                while(true){
+                  System.out.printf("Digite o indice do carro que deseja excluir: ");
+                  indice=scan.nextInt();
+                  if(indice<0 || indice>=carros.size())
+                    System.out.println("Indice invalido.");
+                  else
+                    break;
+                }
+                carros.remove(indice);
               }
             }
             else if(op == 6) {
@@ -167,8 +207,16 @@ public class Principal extends Arquivo{
                 for(int i=0;i<motocicletas.size();i++) {                
                   System.out.println("Moto["+i+"]: " +motocicletas.get(i).getMarca() + " " + motocicletas.get(i).getModelo());
                 }
-                System.out.printf("Digite o indice da moto que deseja excluir: ");
-                motocicletas.remove(scan.nextInt());
+                int indice;
+                while(true){
+                  System.out.printf("Digite o indice da motocicleta que deseja excluir: ");
+                  indice=scan.nextInt();
+                  if(indice<0 || indice>=motocicletas.size())
+                    System.out.println("Indice invalido.");
+                  else
+                    break;
+                }
+                motocicletas.remove(indice);
               }
             }
           }
@@ -196,8 +244,16 @@ public class Principal extends Arquivo{
               for(int i=0;i<gerentes.size();i++) {
                 System.out.println("Gerente["+i+"]: " + gerentes.get(i).getNome());
               }
-              System.out.printf("Digite o indice do gerente que deseja alterar: ");
-              gerentes.get(scan.nextInt()).altera();
+              int indice;
+              while(true){
+                System.out.printf("Digite o indice do gerente que deseja alterar: ");
+                indice=scan.nextInt();
+                if(indice<0 || indice>=gerentes.size())
+                  System.out.println("Indice invalido.");
+                else
+                  break;
+              }
+              gerentes.get(indice).altera();
             }
             else if(op == 4) {
               if(vendedores.size()==0)
@@ -206,7 +262,15 @@ public class Principal extends Arquivo{
                 for(int i=0;i<vendedores.size();i++) {
                   System.out.println("Vendedor["+i+"]: " + vendedores.get(i).getNome());
                 }
-                System.out.printf("Digite o indice do vendedor que deseja alterar: ");
+                int indice;
+                while(true){
+                  System.out.printf("Digite o indice do vendedor que deseja alterar: ");
+                  indice=scan.nextInt();
+                  if(indice<0 || indice>=vendedores.size())
+                    System.out.println("Indice invalido.");
+                  else
+                    break;
+                }
                 vendedores.get(scan.nextInt()).altera();
               }
             }
@@ -217,8 +281,16 @@ public class Principal extends Arquivo{
                 for(int i=0;i<gerentes.size();i++) {
                   System.out.println("Gerente["+i+"]: " + gerentes.get(i).getNome());
                 }
-                System.out.printf("Digite o indice do gerente que deseja excluir: ");
-                gerentes.remove(scan.nextInt());
+                int indice;
+                while(true){
+                  System.out.printf("Digite o indice do gerente que deseja excluir: ");
+                  indice=scan.nextInt();
+                  if(indice<0 || indice>=gerentes.size())
+                    System.out.println("Indice invalido.");
+                  else
+                    break;
+                }
+                gerentes.remove(indice);
               }
             }
             else if(op == 6) {
@@ -228,8 +300,16 @@ public class Principal extends Arquivo{
                 for(int i=0;i<vendedores.size();i++) {
                   System.out.println("Vendedor["+i+"]: " + vendedores.get(i).getNome());
                 }
-                System.out.printf("Digite o indice do vendedor que deseja excluir: ");
-                vendedores.remove(scan.nextInt());
+                int indice;
+                while(true){
+                  System.out.printf("Digite o indice do vendedor que deseja excluir: ");
+                  indice=scan.nextInt();
+                  if(indice<0 || indice>=vendedores.size())
+                    System.out.println("Indice invalido.");
+                  else
+                    break;
+                }
+                vendedores.remove(indice);
               }
             }
             else if(op == 7) {
@@ -239,8 +319,15 @@ public class Principal extends Arquivo{
                 for(int i=0;i<vendedores.size();i++) {
                   System.out.println("Vendedor["+i+"]: " + vendedores.get(i).getNome());
                 }
-                System.out.printf("Digite o indice do vendedor que deseja ver desempenho: ");
-                int indiceVendedor=scan.nextInt();
+                int indiceVendedor;
+                while(true){
+                  System.out.printf("Digite o indice do vendedor que deseja ver desempenho: ");
+                  indiceVendedor=scan.nextInt();
+                  if(indiceVendedor<0 || indiceVendedor>=vendedores.size())
+                    System.out.println("Indice invalido.");
+                  else
+                    break;
+                }
                 for(int i=0;i<vendas.size() && vendas.size()!=0;i++) {
                   if(vendas.get(i).getVendedor()==vendedores.get(indiceVendedor)){
                     vendas.get(i).mostraVenda();

@@ -89,7 +89,13 @@ public abstract class Veiculo {
   }
 
   public void setAno(int ano) {
-    this.ano = ano;
+    Scanner scan=new Scanner(System.in);
+    if(ano<1950 || ano>2050){
+      System.out.printf("Ano invalido. Digite outro: ");
+      setAno(scan.nextInt());
+    }
+    else
+      this.ano = ano;
   }
 
   public void setKm(int km) {

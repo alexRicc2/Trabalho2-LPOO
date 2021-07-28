@@ -17,7 +17,7 @@ public class Arquivo{
       dados2=dados.split(";");
     }
     catch(IOException e){
-      System.out.println("Erro.");
+      
     }
     return dados2;
   }
@@ -361,7 +361,7 @@ public class Arquivo{
       escrever.close();
     }
     catch(IOException e){
-      System.out.println("Erro.");
+     
     }
   }
 }

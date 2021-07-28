@@ -112,8 +112,16 @@ public abstract class Venda {
     for(int i=0;i<clientes.size();i++) {
       System.out.println("Cliente["+i+"]: "+clientes.get(i).getNome());
     }
-    System.out.printf("Digite o indice do cliente que esta realizando a compra: ");
-    this.setCliente(clientes.get(scan.nextInt()));
+    int indice;
+    while(true){
+      System.out.printf("Digite o indice do cliente que esta realizando a compra: ");
+      indice=scan.nextInt();
+      if(indice<0 || indice>=clientes.size())
+        System.out.println("Indice invalido.");
+      else
+        break;
+    }
+    this.setCliente(clientes.get(indice));
     
     System.out.println("1- comprar um carro");
     System.out.println("2- comprar uma moto");
@@ -132,8 +140,15 @@ public abstract class Venda {
           }
         }
         if(disponivel){
-          System.out.printf("Digite o indice do carro que esta sendo comprado: ");
-          this.setVeiculo(carros.get(scan.nextInt()));  
+          while(true){
+            System.out.printf("Digite o indice do carro que esta sendo comprado: ");
+            indice=scan.nextInt();
+            if(indice<0 || indice>=carros.size() || carros.get(indice).getStatus())
+              System.out.println("Indice invalido.");
+            else
+              break;
+          }
+          this.setVeiculo(carros.get(indice));  
           this.getVeiculo().setStatus(true);
         }
         else{
@@ -155,8 +170,15 @@ public abstract class Venda {
           }
         }
         if(disponivel){
-          System.out.printf("Digite o indice da moto que esta sendo comprada: ");
-          this.setVeiculo(motos.get(scan.nextInt()));  
+          while(true){
+            System.out.printf("Digite o indice da moto que esta sendo comprada: ");
+            indice=scan.nextInt();
+            if(indice<0 || indice>motos.size() || motos.get(indice).getStatus())
+              System.out.println("Indice invalido.");
+            else
+              break;
+          }
+          this.setVeiculo(motos.get(indice));  
           this.getVeiculo().setStatus(true);
         }
         else{

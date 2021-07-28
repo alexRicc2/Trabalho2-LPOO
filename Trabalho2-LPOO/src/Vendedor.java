@@ -40,8 +40,15 @@ public class Vendedor extends Funcionarios {
     for(int i=0;i<gerentes.size();i++) {
       System.out.println("Gerente["+i+"]: "+gerentes.get(i).getNome());
     }
-    System.out.printf("Digite o indice do gerente responsavel: ");
-    this.setResponsavel(gerentes.get(scan.nextInt()));
-   
+    int indice;
+    while(true){
+      System.out.printf("Digite o indice do gerente responsavel: ");
+      indice=scan.nextInt();
+      if(indice<0 || indice>=gerentes.size())
+        System.out.println("Indice invalido.");
+      else
+        break;
+    }
+    this.setResponsavel(gerentes.get(indice));
   }
 }
