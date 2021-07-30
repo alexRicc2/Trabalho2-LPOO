@@ -1,3 +1,7 @@
+// Alex Ricardo Rodrigues Sant'Anna
+// Diego Lopes da Silva
+// Jardel Brandão dos Santos
+// Luis Felipe Shimabucoro Furilli
 import java.io.*;
 import java.util.*;
 public class Principal extends Arquivo{
